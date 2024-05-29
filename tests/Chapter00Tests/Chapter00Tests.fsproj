@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="UnquoteExamples.fsx" />
+    <Compile Include="UnquoteTests.fs" />
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
@@ -23,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Chapter01\Chapter01.fsproj" />
+    <ProjectReference Include="..\..\src\Chapter00\Chapter00.fsproj" />
   </ItemGroup>
 
 </Project>
