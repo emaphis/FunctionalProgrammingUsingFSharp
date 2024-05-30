@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Include="Notes00.md" />
+    <None Include="MathFormating.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
