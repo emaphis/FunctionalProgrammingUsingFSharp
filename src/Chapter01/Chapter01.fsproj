@@ -9,6 +9,7 @@
     <None Include="Notes01.md" />
     <None Include="Section01.fsx" />
     <Compile Include="Section02.fs" />
+    <Compile Include="Section03.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
