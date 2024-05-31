@@ -27,7 +27,7 @@ $0! = 1$ and $1 \cdot (1 - 1)! = 1 \cdot 0! = 1 \cdot 1 = 1$
 
 thus we get:
 
-$0! = 1 \quad \quad \quad \quad \text{ (Clause 1)} \cr
+$0! = 1 \quad \quad \quad \quad \text{ (Clause 1)}\\
 n! = n \cdot (n - 1)! \space for \space n > 0 \quad \text{ (Clause 2)}$
 
 This formula is called a `recursion formula` for the factorial function $(\dots!)$ as it expresses the value of the function for some argument $n$ in terms of the value of the function for some other argument here $(n-1)$.
