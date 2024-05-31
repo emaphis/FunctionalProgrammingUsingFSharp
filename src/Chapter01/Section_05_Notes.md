@@ -26,7 +26,7 @@ $$
 In mathematics $x^n$ is a function of two variables $x$ and $n$, but it can be represented by pairs in F#:
 
 $$
-\boxed{\text{If } a_1 \text{ and } a_2 \text{ are values of types } T_1 \text{ and } T_2 \text{ then } (a_1,a_2) \text{ is a value of type } T_1 * T_2}
+\boxed{\text{If } a_1 \text{ and } a_2 \text{ are values of types } \tau_1 \text{ and } \tau_2 \text{ then } (a_1,a_2) \text{ is a value of type } \tau_1 * \tau_2}
 $$
 
 F# Definition of the `power` function
