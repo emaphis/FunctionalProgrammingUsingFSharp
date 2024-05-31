@@ -5,7 +5,7 @@ Type checking in F# is an integral process in software development. The compiler
 Type consideration for function application $f(e)$ is a special case of the general type rule for function application:
 
 $$
-\boxed{\text{if } f \text{ has type } \tau_1 \rarr \tau_2 \text{ and } e \text{ has type } \tau_1\\
+\boxed{\text{if } f \text{ has type } \tau_1 \rightarrow \tau_2 \text{ and } e \text{ has type } \tau_1\\
  \text{ then } f(e) \text{ has type } \tau_2.}
 $$
 
