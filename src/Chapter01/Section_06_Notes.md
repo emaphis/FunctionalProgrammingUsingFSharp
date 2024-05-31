@@ -13,6 +13,6 @@ Using the notation $e : \tau $ to assert that the expression $e$ has type $\tau$
 presented more succinctly as follows:
 
 $$
-\boxed{\text{if } f : \tau_1 \rarr \tau_2 \text { and } e : \tau_1\\
+\boxed{\text{if } f : \tau_1 \rightarrow \tau_2 \text { and } e : \tau_1\\
 \text{ then } f(e) : τ2.}
 $$
