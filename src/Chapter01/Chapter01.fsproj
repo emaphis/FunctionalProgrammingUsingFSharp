@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Section04.fs" />
     <None Include="Notes01.md" />
     <None Include="Section01.fsx" />
     <Compile Include="Section02.fs" />
     <Compile Include="Section03.fs" />
     <None Include="Section04.md" />
+    <Compile Include="Section04.fs" />
+    <None Include="Section5.md" />
+    <Compile Include="Section05.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
