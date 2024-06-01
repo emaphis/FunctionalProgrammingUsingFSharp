@@ -6,18 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Notes01.md" />
-    <None Include="Section01.fsx" />
+    <Content Include="Notes01.md" />
+    <Content Include="Section01.fsx" />
     <Compile Include="Section02.fs" />
     <Compile Include="Section03.fs" />
-    <None Include="Section_04_Notes.md" />
+    <Content Include="Section_04_Notes.md" />
     <Compile Include="Section04.fs" />
-    <None Include="Section_05_Notes.md" />
+    <Content Include="Section_05_Notes.md" />
     <Compile Include="Section05.fs" />
     <Content Include="Section_06_Notes.md" />
     <Content Include="Section_07_Notes.md" />
     <Content Include="Section_08_Notes.md" />
     <Compile Include="Section08.fs" />
+    <Content Include="Section_09_Notes.md" />
+    <Content Include="Section_10_Notes.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

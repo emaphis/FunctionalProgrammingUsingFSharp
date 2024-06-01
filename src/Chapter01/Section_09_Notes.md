@@ -15,9 +15,9 @@ val gcd : int * int -> int
 
 Contains two clauses: One pattern $(0, 1)$ which matches the expession $n$ and another with the pattern $(m, n)$ with the expression $gcd(n \% m, m)$. So the expression $gcd(x, y)$ has two corresponding clauses:
 
-Clause 1: $gcd(0, y): The argument $(0, y)$ matches the pattern $(0, n)$ in the first clause giving the binding $n \mapsto y$, and the system evaluates the corresponding right hand expression using the binding:
+Clause 1: $gcd(0, y)$: The argument $(0, y)$ matches the pattern $(0, n)$ in the first clause giving the binding $n \mapsto y$, and the system evaluates the corresponding right hand expression using the binding:
 
-$
+$$
 gcd(y, 0) \leadsto (n, [n \mapsto y]) \leadsto y
 $$
 

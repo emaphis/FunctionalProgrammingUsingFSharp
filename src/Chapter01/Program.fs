@@ -1,2 +1,8 @@
-﻿// For more information see https://aka.ms/fsharp-console-apps
-printfn "Hello from F#"
+﻿// Chapter 01
+
+open System
+
+[<EntryPoint>]
+let main(param: string[]) =
+    printfn "Hello %s\n" param[0]
+    0
