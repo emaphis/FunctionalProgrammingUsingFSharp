@@ -14,8 +14,10 @@
     <Compile Include="Section04.fs" />
     <None Include="Section_05_Notes.md" />
     <Compile Include="Section05.fs" />
-    <None Include="Section_06_Notes.md" />
-    <None Include="Section_07_Notes.md" />
+    <Content Include="Section_06_Notes.md" />
+    <Content Include="Section_07_Notes.md" />
+    <Content Include="Section_08_Notes.md" />
+    <Compile Include="Section08.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
