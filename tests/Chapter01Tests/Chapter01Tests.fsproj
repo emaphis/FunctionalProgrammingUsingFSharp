@@ -14,6 +14,12 @@
     <Compile Include="Section04Tests.fs" />
     <Compile Include="Section05Tests.fs" />
     <Compile Include="Section08Tests.fs" />
+    <Compile Include="Exercise_01_Tests.fs" />
+    <Compile Include="Exercise_02_Tests.fs" />
+    <Compile Include="Exercise_03_Tests.fs" />
+    <Compile Include="Exercise_04_Tests.fs" />
+    <Compile Include="Exercise_05_Tests.fs" />
+    <Compile Include="Exercise_06_Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

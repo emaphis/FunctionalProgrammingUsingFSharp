@@ -20,6 +20,14 @@
     <Compile Include="Section08.fs" />
     <Content Include="Section_09_Notes.md" />
     <Content Include="Section_10_Notes.md" />
+    <Compile Include="Exercise_01.fs" />
+    <Compile Include="Exercise_02.fs" />
+    <Compile Include="Exercise_03.fs" />
+    <Compile Include="Exercise_04.fs" />
+    <Compile Include="Exercise_05.fs" />
+    <Compile Include="Exercise_06.fs" />
+    <Compile Include="Exercise_07.fs" />
+    <Compile Include="Exercise_08.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
