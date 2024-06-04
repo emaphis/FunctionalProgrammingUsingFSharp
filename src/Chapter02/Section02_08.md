@@ -17,6 +17,7 @@ let methanolWeight = weight 786.5
 ```
 
 The resulting closure is:
+
 $$
 \left(s, ro \text{ * } s \text{ ** } 3.0, \left[
     \begin{align*}
