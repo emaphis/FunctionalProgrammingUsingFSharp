@@ -10,11 +10,11 @@
     <None Include="Section_02_01.fsx" />
     <None Include="Section_02_02.md" />
     <None Include="Section_02_03.fsx" />
-    <None Include="Section02_04.fsx" />
-    <None Include="Section02_05.fsx" />
-    <None Include="Section02_06.md" />
-    <None Include="Section02_07.fsx" />
-    <None Include="Section02_08.md" />
+    <None Include="Section_02_04.fsx" />
+    <None Include="Section_02_05.fsx" />
+    <None Include="Section_02_06.md" />
+    <None Include="Section_02_07.fsx" />
+    <None Include="Section_02_08.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
