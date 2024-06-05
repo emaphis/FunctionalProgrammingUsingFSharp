@@ -18,9 +18,11 @@
     <None Include="Section_02_09.fsx" />
     <None Include="Section_02_10.fsx" />
     <None Include="Section_02_11.fsx" />
+    <Compile Include="Exercise_02_01.fs" />
+    <Compile Include="Exercise_02_02.fs" />
+    <Compile Include="Exercise_02_03.fs" />
+    <Compile Include="Exercise_02_04.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>
