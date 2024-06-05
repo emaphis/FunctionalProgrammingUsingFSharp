@@ -15,6 +15,9 @@
     <None Include="Section_02_06.md" />
     <None Include="Section_02_07.fsx" />
     <None Include="Section_02_08.md" />
+    <None Include="Section_02_09.fsx" />
+    <None Include="Section_02_10.fsx" />
+    <None Include="Section_02_11.fsx" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
