@@ -1,4 +1,4 @@
-module Chapter02.Exercise_02_02
+module Chapter02.Exercise_02_02_Tests
 
 open System
 open Xunit

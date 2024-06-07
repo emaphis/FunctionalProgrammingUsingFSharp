@@ -19,9 +19,3 @@ let rec pow(s, n) =
     | s, n  -> s + pow(s, n-1)
 
 // val pow: s: string * n: int -> string
-
-
-let test1 = pow("a", 0)
-let test2 = pow("a", 1)
-let test3 = pow("a", 3)
-let test4 = pow("", 3)

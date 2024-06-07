@@ -1,6 +1,5 @@
 ﻿module Chapter02.Exercise_02_04
 
-open Chapter02.Exercise_02_03
 
 (*
     Exercise 2.4
@@ -12,9 +11,11 @@ open Chapter02.Exercise_02_03
     Hint: the value should be 0 for i ≥ size str
 *)
 
-// Use from isIthchar Exercise 2.2
+// Use from isIthchar Exercise 2.3
+let isIthchar(str: string, i, ch) =    str[i] = ch
 
-/// String power functions
+/// Computes the number of occurences of character ch
+/// in positions `j` in the string `str` with `j >= i`.
 let rec occFromIth(str, i, ch) =
     if i >= String.length str
     then 0
@@ -23,9 +24,3 @@ let rec occFromIth(str, i, ch) =
         else occFromIth(str, (i+1), ch)
 
 // val occFromIth: str: string * i: int * ch: char -> int
-
-
-let test1 = 0 = occFromIth("aaaa", 3, 'b')
-let test2 = 1 = occFromIth("aaaa", 3, 'a')
-let test3 = 2 = occFromIth("aaaa", 2, 'a')
-let test4 = 0 = occFromIth("abab", 3, 'a')

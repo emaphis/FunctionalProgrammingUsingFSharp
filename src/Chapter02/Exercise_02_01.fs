@@ -19,8 +19,3 @@ let f n =
 // f(27) = false
 // f(29) = false
 // f(30) = true
-
-let val1 =f(24) = true
-let val2 = f(27) = false
-let val3 = f(29) = false
-let val4 = f(30) = true
