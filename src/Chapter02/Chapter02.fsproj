@@ -26,6 +26,11 @@
     <Compile Include="Exercise_02_06.fs" />
     <Compile Include="Exercise_02_07.fs" />
     <Compile Include="Exercise_02_08.fs" />
+    <Compile Include="Exercise_02_09.fs" />
+    <Compile Include="Exercise_02_10.fs" />
+    <Compile Include="Exercise_02_11.fs" />
+    <Compile Include="Exercise_02_12.fs" />
+    <None Include="Exercise_02_13.fsx" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
