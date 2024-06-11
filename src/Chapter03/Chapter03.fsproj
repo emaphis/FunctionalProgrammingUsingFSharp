@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Notes.md" />
+    <Content Include="Section03_01.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
