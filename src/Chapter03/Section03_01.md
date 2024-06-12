@@ -49,7 +49,7 @@ let t2 = (t1, 1, -3)
 
 ## Equality
 
-Equality is defined for tuples of the same type, if equality is defined for all of the subcomponents. Equality is calculated in order. $(v_1,v_2, ..., v_n)$ is equal to $(v_1', v_2', ... , v_n') if $v_1$ is equal to $v_1'$, of $1 \leq i \leq n$.
+Equality is defined for tuples of the same type, if equality is defined for all of the subcomponents. Equality is calculated in order. $(v_1,v_2, ..., v_n)$ is equal to $(v_1', v_2', ... , v_n')$ if $v_1$ is equal to $v_1'$, of $1 \leq i \leq n$.
 
 ```fsharp
 ("abc", 2, 4, 9) = ("ABD", 2, 3, 9);;
@@ -78,7 +78,7 @@ $$
 exactly when, for some $k$ where $1 \leq k \leq n$, we have:
 
 $$
-x_1=y_1 || x_2=y_2 or... || x_{k-1}=y_{k-1} || x_k<y_k
+x_1=y_1 \space or \space x_2=y_2 \space or \space... \space or \spaceS x_{k-1}=y_{k-1} || x_k<y_k
 $$
 
 ```fsharp
