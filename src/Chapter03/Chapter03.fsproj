@@ -1,15 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="Notes.md" />
-    <Content Include="Section03_01.md" />
-    <Content Include="Section03_02.md" />
+    <Content Include="Section_03_01.md" />
+    <Content Include="Section_03_02.md" />
+    <Compile Include="Section_02_03.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
 </Project>
