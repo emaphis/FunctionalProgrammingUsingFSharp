@@ -26,7 +26,7 @@ let solve (a, b, c) =
     if disc < 0.0 || a = 0.0
     then  failwith "discriminant is negative or a=0.0"
     else 
-        let sqrt disc
+        let sqrtD = sqrt disc
         ((-b + sqrtD) / (2.0 * a), (-b - sqrtD) / (2.0 * a))
 
 // val solve: a: float * b: float * c: float -> float * float
