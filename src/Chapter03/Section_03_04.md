@@ -77,7 +77,7 @@ v1'>v2'
 A `record pattern` is used to decompose a record into its fields. The pattern:
 
 $$
-\{ name = x; age = y; sex = s; birthday =(d,m) \}
+\space \{ \space name = x; age = y; sex = s; birthday =(d,m) \space \}
 $$
 
 Generates bindings for `x,y,s,d` and `m` when matched against a person reorcd.

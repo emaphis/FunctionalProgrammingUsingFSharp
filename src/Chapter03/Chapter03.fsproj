@@ -9,7 +9,9 @@
     <Content Include="Section_03_02.md" />
     <Compile Include="Section_03_03.fs" />
     <Content Include="Section_03_04.md" />
+    <Content Include="Section_03_05.md" />
+    <Content Include="Section_03_06.md" />
+    <Compile Include="QuadraticEquation.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-  <ItemGroup />
 </Project>
