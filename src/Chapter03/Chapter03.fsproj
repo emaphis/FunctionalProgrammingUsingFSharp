@@ -14,6 +14,7 @@
     <Compile Include="QuadraticEquation.fs" />
     <Compile Include="Section_03_07.fs" />
     <Compile Include="Section_03_08.fs" />
+    <Compile Include="Section_03_09.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
