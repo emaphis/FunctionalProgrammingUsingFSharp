@@ -11,4 +11,4 @@ let tot = price * 20
 // val it: int = 2500
 
 tot / price
-// val it: int = 10
+// val it: int = 20

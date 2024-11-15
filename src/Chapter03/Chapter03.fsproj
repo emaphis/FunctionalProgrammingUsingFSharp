@@ -17,6 +17,7 @@
     <Compile Include="Section_03_09.fs" />
     <Compile Include="Section_03_10.fs" />
     <Compile Include="Section_03_11.fs" />
+    <Compile Include="Execise_03_01.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
