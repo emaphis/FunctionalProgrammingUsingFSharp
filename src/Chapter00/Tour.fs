@@ -428,3 +428,98 @@ module RecursiveFunctions =
         else greatestCommonFactor (a - b) b
 
     printfn $"The Greatest Common Factor of 300 and 620 is %d{greatestCommonFactor 300 620}"
+
+    /// This example computes the sum of a list of integers using recursion.
+    ///
+    /// '::' is used to split a list inot the head and tail of the list,
+    /// the head being the first element and the tail being the reso of the list.
+    let rec sumList xs =
+        match xs with
+        | []    -> 0
+        | y::ys -> y + sumList ys
+
+    let oneThroughTen = [ 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 ]
+
+    let sum1 = sumList oneThroughTen
+    printfn $"The sum of the list of 1 through 10 is {sum1}"
+
+    /// This makes 'sumList' tail recursive, using a helper function with a result accumulator.
+    let rec private sumListTailRecHelper accumulator xs =
+        match xs with
+        | []    -> accumulator
+        | y::ys -> sumListTailRecHelper (accumulator+y) ys
+
+    /// This invokes the tail recursive helper function, providing '0' as a seed accumulator.
+    /// An opproach like this is common in F#.
+    let sumListTailRecursive xs = sumListTailRecHelper 0 xs
+
+    let sum2 = sumListTailRecursive oneThroughTen
+    printfn $"The sum of the list of 1 through 10 is {sum2}"
+
+
+/// Records are an aggregate of named values, with optional members (such as methods).
+/// They are immutable and have structural equality semantix.
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/records
+module RecordTypes =
+
+    /// This example shows how to define a new record type.
+    type ContactCard =
+        { Name      : string
+          Phone     : string
+          Verified  : bool }
+
+    /// This example shows how to instantiate a record type.
+    let contact1 =
+        { Name = "Alf"
+          Phone = "(206) 555-0157"
+          Verified = false }
+
+    /// You can also do this on the same line with ';' separators.
+    let contactOnSameLine = { Name = "Alf"; Phone = "(206) 555-0157"; Verified = false }
+
+    /// This example shows how to use "copy-and-update" on record values. It creates
+    /// a new record value that is a copy of contact1, but has different values for
+    /// the 'Phone' and 'Verified' fields.
+    ///
+    /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/copy-and-update-record-expressions
+    let contact2 =
+        { contact1 with
+            Phone = "(206) 555-0122"
+            Verified = true }
+
+    /// This example shows how to write a function that processes a record value.
+    /// It converts a 'ContactCard' object to a string.
+    let showContactCard (c: ContactCard) =
+        c.Name + " Phone: " + c.Phone + (if not c.Verified then " (unverified)" else "")
+
+    printfn $"Alf's Contact Card: {showContactCard contact1}"
+
+    /// This is an example of a Record with a member
+    type ContactCardAlternate =
+        { Name      : string
+          Phone     : string
+          Address   : string
+          Verified  : bool }
+
+        /// Members can implement object-oriented members.
+        member this.PrintedContactCard =
+            this.Name + " Phone: " + this.Phone + (if not this.Verified then " (unverified) " else " ") + this.Address
+
+    let contactAlternate =
+        { Name = "Alf"
+          Phone = "(206) 555-0157"
+          Verified = false
+          Address = "111 Alf Street" }
+
+    // Members are accessed via the '.' operator on an instantiated typel
+    printfn $"Alfs' alternative contact card is {contactAlternate.PrintedContactCard}"
+
+    /// Records can also be represented as structs via the 'Struct' attribute.
+    /// This is helpful in situations where the performance of structs outweighs
+    /// the flexibility of reference types.
+    [<Struct>]
+    type ContactCardStruct =
+        { Name      : string
+          Phone     : string
+          Verified  : bool }
