@@ -523,3 +523,399 @@ module RecordTypes =
         { Name      : string
           Phone     : string
           Verified  : bool }
+
+
+/// Disctiminated Unions (DU for short) are values which could be a number of named forms or cases.
+/// Data stored in DUs can be on of several distinct values.
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/discriminated-unions
+module DiscriminatedUnions =
+
+    /// The following represents the suit of a playing card.
+    type Suite =
+        | Hearts
+        | Clubs
+        | Diamonds
+        | Spades
+
+    /// A Disctiminated Union can also be used to represent the rank of a playing card.
+    type Rank =
+        /// Represents the ran of cards 2 .. 10
+        | Value of int
+        | Ace
+        | King
+        | Queen
+        | Jack
+
+        /// Discriminated Unions can also implement object-oriented members.
+        static member GetAllRanks() =
+            [ yield Ace
+              for i in 2 .. 10 do yield Value i
+              yield Jack
+              yield Queen
+              yield King ]
+
+    /// This is a record of type that combines a Suite and a Rank.
+    /// It's common to use both Records and Discriminated Unions when representing data.
+    type Card = { Suite: Suite; Rank: Rank }
+
+    /// This computes a list representing all the Cards in the deck.
+    let fullDeck =
+        [ for suite in [ Hearts; Diamonds; Clubs; Spades ] do
+            for rank in Rank.GetAllRanks() do
+                yield { Suite = suite; Rank = rank } ]
+
+    /// This exmple converts a 'Card' object to a string.
+    let showPlayingCard (c: Card) =
+        let rankString =
+            match c.Rank with
+            | Ace -> "Ace"
+            | King -> "King"
+            | Queen -> "Queen"
+            | Jack -> "Jack"
+            | Value n -> string n
+        let suitString =
+            match c.Suite with
+            | Clubs -> "clubs"
+            | Diamonds -> "diamonds"
+            | Spades -> "spades"
+            | Hearts -> "hearts"
+        rankString + " of " + suitString
+
+    /// This example prints all the cards in a playing deck.
+    let printAllCards() =
+        for card in fullDeck do
+            printfn $"{showPlayingCard card}"
+
+    do printAllCards()
+
+
+    // Single-case DUs are often used for domain modeling.  This can buy you extra type sefety
+    // over primitive types such as strings and ints.
+    //
+    // Single-case DUs cannot be implicitly converted to or from the type they wrap.
+    // For example, a function which takes in an Address cannot accept a string as that input,
+    // or vice versa.
+    type Address = Address of string
+    type Name = Name of string
+    type SSN = SSN of int
+
+    // You can easily instantiate a single-case DU as follows.
+    let address = Address "111 Alf Way"
+    let name = Name "Alf"
+    let ssn = SSN 1234567890
+
+    /// When you need the value, you can unwrap the underlying value with a simple function.
+    let unwrapAddress (Address a) = a
+    let unwrapName (Name n) = n
+    let unwrapSSN (SSN s) = s
+
+    // Printing single-case DUs is simple with unwrattping functions.
+    printfn $"Address: {address |> unwrapAddress}, Name: {name |> unwrapName}, and SNN: {ssn |> unwrapSSN}"
+
+    /// Discriminated Unions also support recursive definitions.
+    ///
+    /// This represents a Binary Search Tree, with one case being the Empty tree,
+    /// and the other being a Node with a value and two subtrees.
+    ///
+    /// Note: 'T here is a type parameter, indicating that 'BST' is a genereic type.
+    /// More on generics later.
+    type BST<'T> =
+        | Empty
+        | Node of value:'T * left: BST<'T> * right: BST<'T>
+
+    /// Check if an item exists in the binary search tree.
+    /// Searches recursively using Pattern Matching.  Returns true if it exists; otherwise, false.
+    let rec exists item bst =
+        match bst with
+        | Empty -> false
+        | Node (x, left, right) ->
+            if item = x then true
+            elif item < x then (exists item left)  // Check the left subtree
+            else (exists item right)        // Check the right subtree.
+
+    /// Inserts an item in the Binary Search Tree.
+    /// Finds the place to insert recursively using Pattern Matching, then inserts a new node.
+    /// If the item is already present, it does not insert anything.
+    let rec insert item bst =
+        match bst with
+        | Empty  -> Node(item, Empty, Empty)
+        | Node(x, left, right) as node ->
+            if item = x then node  // No need to insert, it already exists; return the node
+            elif item < x then Node(x, insert item left, right)  // Call into left subtree
+            else Node(x, left, insert item right)  // Call into right subreee.
+
+    /// Discriminated Unions can also be represented as structs via the 'Struct' attribute.
+    /// This is helpful in situations where the performance of structs outweighs
+    /// the flexibility of reference types.
+    ///
+    /// However, there are two important things to know when doing this:
+    ///     1. A struct DU cannot be recursively-defined.
+    ///     2. A struct DU must have unique names for each of its cases.
+    [<Struct>]
+    type Shape =
+        | Circle of radius: float
+        | Square of side: float
+        | Triangle of height: float * width: float
+
+
+/// Pattern Matching is a feature of F# that allows you to utilize Patterns,
+/// which are a way to compare data with a logical structue or structures,
+/// decompose data into constituent parts, or extract information from data in various ways.
+/// You can then dispatch on the "shape" of a pattern via Pattern Matching
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/pattern-matching
+module PatternMatching =
+
+    open System
+
+    /// A record for a person's first and last name
+    type Person = {
+        First : string
+        Last  : string
+    }
+
+    /// A Discriminated Union of 3 different kinds of employees.
+    type Employee =
+        | Engineer of engineer: Person
+        | Manager of manager: Person * reports: List<Employee>
+        | Executive of executive: Person * reports: List<Employee> * assistant: Employee
+
+    /// Count everyone underneath the employee in the management hierarchy,
+    /// including the employee. The matches bind names to the properties
+    /// of the cases so that those names can be used inside the match branches.
+    /// Note that the names used for binding do not need to be the same as the
+    /// names given in the DU definition above.
+    let rec countReports(emp: Employee) =
+        1 + match emp with
+            | Engineer(person) -> 0
+            | Manager(person, reports) ->
+                reports |> List.sumBy countReports
+            | Executive(person, reports, assistant) ->
+                (reports |> List.sumBy countReports) + countReports assistant
+
+    /// Find all managers/executives named "Dave" who do not have any reports.
+    /// This uses the 'function' shorthand to define a lambda
+    let findDaveWithOpenPosition(emps : List<Employee>) =
+        emps
+        |> List.filter(function
+                                | Manager({First = "Dave"}, []) -> true
+                                | Executive({First = "Dave"}, [], _) -> true
+                                | _ -> false)
+
+    /// You can also use the shorthand function construct for pattern matiching,
+    /// which is useful when you're writing function which make use of Partial Application
+    let private parseHelper (f: string -> bool * 'T) = f >> function
+        | (true, item) -> Some item
+        | (false, _) -> None
+
+    let parseDateTimeOffset = parseHelper DateTimeOffset.TryParse
+
+    let result1 =  parseDateTimeOffset "1970-01-01"
+
+    do match result1 with
+       | Some dto -> printfn "It parsed!"
+       | None -> printfn "It didn't parse!"
+
+    // Define some more functions which parse with the helper function.
+    let parseInt = parseHelper Int32.TryParse
+    let parseDouble = parseHelper Double.TryParse
+    let parseTimeSpan = parseHelper TimeSpan.TryParse
+
+    // Active Patterns are another powerful construct to use with pattern matching
+    // They allow you to partition input data into custome forms, decomposing them at the Pattern Match call site
+    //
+    // See: see: https://learn.microsoft.com/dotnet/fsharp/language-reference/active-patterns
+    let (|Int|_|) = parseInt
+    let (|Double|_|) = parseDouble
+    let (|Date|_|) = parseDateTimeOffset
+    let (|TimeSpan|_|) = parseTimeSpan
+
+    /// Pattern Matching via 'function' keyword and Active Patterns often look like this.
+    let printParseResult = function
+        | Int x -> printfn $"%d{x}"
+        | Double x -> printfn $"%f{x}"
+        | Date d -> printfn $"%O{d}"
+        | TimeSpan t -> printfn $"%O{t}"
+        | _ -> printfn "Nothing was parse-able!"
+
+    // Call the printer with some different values to parse.
+    printParseResult "12"
+    printParseResult "12.045"
+    printParseResult "12/28/2016"
+    printParseResult "9:01PM"
+    printParseResult "banana!"
+
+
+/// Option values are any kind of value tagged with either 'Some' or 'None'.
+/// They are used extensively in F# code to represent the cases where many other
+/// kanguages would use nill references.
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/options
+module OptionValues =
+
+    /// First, define a zip code defined via Single-case Discriminated Union.
+    type ZipCode = ZipCode of string
+
+    /// Next, define a type where the ZipCode is optional
+    type Customer = { ZipCode: ZipCode option}
+
+    /// Next, define an interface type that represents an object to compute the shipping zone for the customer's zip code,
+    /// given implementations for the 'getState and 'getShippingZone' abstract methods.
+    type IShippingCalculator =
+        abstract GetState : ZipCode -> string option
+        abstract GetShippingZone : string -> int
+
+    /// Next, calculate a shipping zone for a customer using a calculator instance.
+    /// This uses combinators in the Option module to allow a functional pipeline for
+    /// transfering data with Optionals
+    let CustomerShippingZone (calculator: IShippingCalculator, custormer: Customer) =
+        custormer.ZipCode
+        |> Option.bind calculator.GetState
+        |> Option.map calculator.GetShippingZone
+
+
+/// Units of measure are a way to annotate primitive numeric types in a type-safe way.
+/// You can then perform type-safe arithmetic on these values.
+///
+/// To learn more, see: https://learn.microsoft.com/dotnet/fsharp/language-reference/units-of-measure
+module UnitsOfMeasure =
+
+    // First, open a collection of common units names
+    open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
+
+    /// Define a unitized constant
+    let sampleValue1 = 1000.0<meter>
+
+    /// Next, define a new unit type
+    [<Measure>]
+    type mile =
+        /// Conversion factor mile to meter.
+        static member asMeter = 1609.34<meter/mile>
+
+
+    /// Define a unitized constant
+    let sampleValue2 = 500.0<mile>
+
+    /// Compute metric-system constant
+    let sampleValue3 = sampleValue2 * mile.asMeter
+
+    // Values using Units of Measure can be used just like the primitive numeric type for things like printing.
+    printfn $"After a %f{sampleValue1} race I would walk %f{sampleValue2} miles which would be %f{sampleValue3} meters"
+
+
+/// Clases are a way of defining new object types in F#, and support standard Object-orientd constructs.
+/// They can hava a variety of members (methods, properties, events etc.)
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/classes
+///      https://learn.microsoft.com/dotnet/fsharp/language-reference/members
+module DefiningClasses =
+
+    /// A simple two-dimensional Vector class.
+    ///
+    /// The class's construction is on the first line.
+    /// and takes two arguments: dx and dy, both type 'double'
+    type Vector2D(dx: double, dy: double) =
+
+        /// This internal fields stores the length of the vectos, computed when the
+        /// object is constructed
+        let length = sqrt(dx*dx + dy*dy)
+
+        // 'this' specifies a name for the object's self-identifier.
+        // In instance methods, it must appear before the member name.
+        member this.DX = dx
+
+        member this.DY = dy
+
+        member this.Length = length
+
+        /// This member is a method.  The previous members were properties.
+        member this.Scale(k) = Vector2D(k * this.DX, k * this.DY)
+
+    /// This is how you instantiate the Vector2D class.
+    let vector1 = Vector2D(3.0, 4.0)
+
+    /// Get a new scaled vector object, without modifying the original object.
+    let vector2 = vector1.Scale(10.0)
+
+    printfn $"Length of vector1: %f{vector1.Length}\nLength of vector2: %f{vector2.Length}"
+
+
+/// Generic classes allow types to be defined with respect to a set of type parameters.
+/// Int the following, 'T is the type prarmetr for the class.
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/generics/
+module DefiningGenericClasses =
+
+    type StateTracker<'T>(initialElement: 'T) =
+
+        /// This internal field stores the states in a a list.
+        let mutable states = [ initialElement ]
+
+        /// Add a new element to the list of states.
+        member this.UpdateState newState =
+            states <- newState :: states  // use the '<-' operator to mutate the value
+
+        /// Get the entire list of historical states.
+        member this.History = states
+
+        /// Get the latest state.
+        member this.Current = states.Head
+
+    /// An 'int' instance of the state tracker class.  Note that the type parameter is inferred.
+    let tracker1 = StateTracker 10
+
+    // Add a state
+    tracker1.UpdateState 17
+
+    // print the states
+    printfn $"Tracker states: {tracker1.History}"
+
+
+/// Interfaces are object types with only 'abstract' members.
+/// Object types and object expressions can implement interfaces.
+///
+/// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/interface
+module ImplementingInterfaces =
+
+    /// This is a type that implements IDisposable
+    type ReadFile() =
+
+        let file = new System.IO.StreamReader("readme.txt")
+
+        member this.ReadLine() = file.ReadLine()
+
+        /// This is the implementation of IDisposable members.
+        interface System.IDisposable with
+            member this.Dispose() = file.Close()
+
+
+    /// This is an object that implements IDisposable via an Object Expression
+    /// Unlike other languages such as C# or Java, a new type definition is not needed
+    /// to implement an interface.
+    let interfaceImplementation =
+        { new System.IDisposable with
+            member this.Dispose() = printfn " disposed" }
+
+
+/// The FSharp.Core library defines a range of parallel processing functions.  Here
+/// you use some functions for parallel processing over arrays.
+///
+/// See: https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-arraymodule-parallel.html
+module ParallelaArrayProgramming =
+
+    /// First, an array of inputs.
+    let oneBigArray = [| 0 .. 100000 |]
+
+    /// Next, define a function that does some CPU intensive computation.
+    let rec computeSomeFunction x =
+        if x <= 2 then 1
+        else computeSomeFunction (x - 1) + computeSomeFunction (x - 2)
+
+    /// Next, do a parallel map over a large input array.
+    let computeResults() =
+        oneBigArray
+        |> Array.Parallel.map (fun x -> computeSomeFunction (x % 20))
+
+    // Next, print the results.
+    printfn $"Parallel computation results: {computeResults}"
