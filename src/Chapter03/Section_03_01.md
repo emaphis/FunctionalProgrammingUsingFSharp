@@ -20,7 +20,7 @@ The symbol $()$ is the only value of `unit`.
 
 ## Tuple expressions
 
-A tuple expression $(expr_1, expr_2, ..., expr_n)$ is formed ny enclosing $n$ expressions $expr_1, expre_2, ..., expr_n$ in parentheses.  It has the type $\tau_1 * \tau_2 * ... \tau_n$ when $expr_1, expr_2, ..., expr_n$ have the types $\tau_1 * \tau_2 * ... \tau_n$.
+A tuple expression $(expr_1, expr_2, ..., expr_n)$ is formed by enclosing $n$ expressions $expr_1, expre_2, ..., expr_n$ in parentheses.  It has the type $\tau_1 * \tau_2 * ... \tau_n$ when $expr_1, expr_2, ..., expr_n$ have the types $\tau_1 * \tau_2 * ... \tau_n$.
 
 For example:
 
@@ -78,7 +78,7 @@ $$
 exactly when, for some $k$ where $1 \leq k \leq n$, we have:
 
 $$
-x_1=y_1 \space or \space x_2=y_2 \space or \space... \space or \spaceS x_{k-1}=y_{k-1} || x_k<y_k
+x_1=y_1 \space or \space x_2=y_2 \space or \space... \space or \space x_{k-1}=y_{k-1} || x_k<y_k
 $$
 
 ```fsharp
@@ -101,7 +101,7 @@ compare ("abcd", (true, 1)) ("abcd", (false, 2));;
 
 ## Tuple patterns
 
-Patterns can be used on the left hand side of a `let` declaration
+Patterns can be used on the left hand side of a `let` declaration to destructure tuples.
 
 ```fsharp
 let (x,n) = (3,2);;

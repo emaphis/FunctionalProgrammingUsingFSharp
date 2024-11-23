@@ -16,7 +16,7 @@ let solve (a, b, c) =
 
 
 let sln0 = solve(1.0, 0.0, 1.0)
-// FSI_0004+Solve: Solve
+// System.Exception: discriminant is negative or a=0.0
 
 let sln1 = solve(1.0, 1.0, -2.0)
 // val sln1: float * float = (1.0, -2.0)

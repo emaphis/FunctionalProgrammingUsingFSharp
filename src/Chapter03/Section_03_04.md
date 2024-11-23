@@ -2,7 +2,7 @@
 
 Is a data definition facility like a tuple but identifies components with labels instead of position.
 
-Unlike a tuple records must be defined before it is used:
+Unlike a tuples, records must be defined before it is used:
 
 ```fsharp
 type Person =
@@ -32,14 +32,14 @@ $john \mapsto \{ age \mapsto 29, birthday \mapsto (2,11), name \mapsto "John", s
 
 Records create local environments. It contains a local binding from label to value.
 
-Individual components can be accesed with dot notation.
+Individual components can be accesed with dot `.` notation.
 
 ```fsharp
 let bday = john.birthday
 // val bday: int * int = (2, 11)
 
 let sex = john.sex
-// al sex: string = "M"
+// val sex: string = "M"
 ```
 
 ## Equality and ordering
@@ -77,10 +77,10 @@ v1'>v2'
 A `record pattern` is used to decompose a record into its fields. The pattern:
 
 $$
-\space \{ \space name = x; age = y; sex = s; birthday =(d,m) \space \}
+\space \{ \space name = x; \space age = y; \space sex = s; \space birthday =(d,m) \space \}
 $$
 
-Generates bindings for `x,y,s,d` and `m` when matched against a person reorcd.
+Generates bindings for `x, y, s, d` and `m` when matched against a person reorcd.
 
 ```fsharp
 let sue = { name="Sue"; age = 19; sex="F";

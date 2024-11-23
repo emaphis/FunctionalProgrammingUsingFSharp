@@ -24,7 +24,7 @@ let (~-.) (x: float, y: float) = (-x, -y)
 // infix operators:
 
 /// Vector addition
-let (+.) (x1, y1) (x2, y2) = (x1+x2, y1+y2): float*float
+let (+.) (x1, y1) (x2, y2) = (x1+x2, y1+y2): float * float
 // val (+.) : x1: float * y1: float -> x2: float * y2: float -> float * float
 
 /// Vector subtraction
@@ -32,7 +32,7 @@ let (-.) v1  v2 = v1 +. -. v2
 // val (-.) : float * float -> float * float -> float * float
 
 /// Multiplication by a scalar
-let ( *.) x (x1, y1) = (x*x1, x*y1) : float*float
+let ( *.) x (x1, y1) = (x*x1, x*y1) : float * float
 // val ( *. ) : x: float -> x1: float * y1: float -> float * float
 
 /// Dot product

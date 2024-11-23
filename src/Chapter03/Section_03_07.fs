@@ -9,7 +9,8 @@ module Chapter03.Section_03_07
 // The value (a,b) of type `int * int` where `b != 0` and `gcd(a,b) = 1` is the
 // `invariant` of rational numbers.
 
-type Qnum = int * int  // (a,b) where b > 0 and gcd(a,b) = 1
+///  (a,b) where b > 0 and gcd(a,b) = 1
+type Qnum = int * int
 
 
 let rec gcd (m, n) =

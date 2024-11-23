@@ -18,7 +18,7 @@ let solve (a, b, c) =
 // val solve: a: float * b: float * c: float -> float * float
 ```
 
-The `sqrt disc` is calculated twice so fold it into it's own declaration
+The `sqrt disc` is calculated twice so fold it into it's own declaration `sqrtD`
 
 ```fsharp
 let solve (a, b, c) =
