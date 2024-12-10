@@ -121,3 +121,9 @@ $\displaystyle\prod_{x=2}^4 x^2 = 2^2 \times 3^2 \times 4^2 = 576$
 Brackets or Parentheses
 
 $[\ldots] (\ldots)$
+
+Bindings F# \mapsto
+
+let x = 10
+
+$ 10 \mapsto x$

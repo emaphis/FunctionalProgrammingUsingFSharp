@@ -5,7 +5,6 @@ open Xunit
 open Swensen.Unquote
 
 open Chapter03.Exercise_03_01
-open Exercise_03_01
 
 let time1 = (11, 59, AM)
 let time2 = (1, 15, PM)

@@ -13,6 +13,7 @@
     <Compile Include="Section_03_06_Tests.fs" />
     <Compile Include="Section_03_07_Tests.fs" />
     <Compile Include="Exercise_03_01_Tests.fs" />
+    <Compile Include="Exercise_03_02_Tests.fs" />
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
