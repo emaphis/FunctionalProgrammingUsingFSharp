@@ -12,12 +12,10 @@
 *)
 
 /// Sum `m` an `n` number of times
-let rec sum (m, n) =
-    match m, n with
+let rec sum = function
     | (m, 0) -> m
     | (m, n) -> (m+n) + sum (m , n - 1)
-
-// val sum: m: int * n: int -> int
+// val sum: int * int -> int
 
 // Recursion formula
 

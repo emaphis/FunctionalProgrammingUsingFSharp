@@ -1,5 +1,9 @@
 ﻿# 1.4 Recursion
 
+Recursive functions are define with at least two cases:
+  A base case which ends the recursive
+  And a recursive case which makes the recursive call on on simpler arguments
+
 This section introduces the concept of recursion formula and recursive declaration of functions by an example: the factorial function n!.
 
 It is defined by:

@@ -8,7 +8,7 @@ $$
 
 where $x$ is a real number and $n$ is a natural number.
 
-The under-brase part of the express below for $x^n$ is the expression of $x^(n-1):
+The under-brace part of the express below for $x^n$ is the expression of $x^{n-1}$:
 
 $$
 x^n = x\cdot\underbrace{x \cdot ... \cdot x}_{x^{n-1}} \quad n \text{ occurences of } x, \text{ when } n > 0
@@ -29,12 +29,29 @@ $$
 \boxed{\text{If } a_1 \text{ and } a_2 \text{ are values of types } \tau_1 \text{ and } \tau_2 \text{ then } (a_1,a_2) \text{ is a value of type } \tau_1 * \tau_2}
 $$
 
-F# Definition of the `power` function
+In F#
+
+```fsharp
+let pr = (2.0,3);;
+val pr: float * int = (2.0, 3)
+```
+
+A pair is a special case of Tuples which will be treated in 3.1
+
+F# Definition of the `power` function using pairs
 
 ```fsharp
 let rec power = function
    | (x,0) -> 1.0                // (1)
    | (x,n) -> x * power(x,n-1)   // (2)
+// val power: float * int -> float w
+```
+
+An evaluation of `pr`
+
+```fsharp
+> power pr;;
+val it: float = 8.0
 ```
 
 A pair:
@@ -56,3 +73,7 @@ evaluation:
     -> 4.0 * (4.0 * 1.0)            // Clause 1, x is 4.0
     -> 16.0
 ```
+
+## Notes on pattern matching
+
+The order of clauses is significant: specific clauses should be ordered before general causes.

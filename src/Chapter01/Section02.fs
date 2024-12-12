@@ -10,6 +10,7 @@ module Section02
 let pi = System.Math.PI
 // val pi: float = 3.141592654
 
+// Declaration of a function
 let circleArea1 r = System.Math.PI * r * r
 //val circleArea1: r: float -> float
 
