@@ -11,7 +11,7 @@ let g =
 // val g: n: int -> int
 
 
-/// Calculate the Sqrt of the squars of two given integers.
+/// Calculate the Sqrt of the squares of two given integers.
 let h =
     fun(x, y) ->
         System.Math.Sqrt(x * x + y * y)

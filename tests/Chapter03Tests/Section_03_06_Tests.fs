@@ -11,6 +11,6 @@ let ``Test Example 3.6: Quadratic Equation solve`` () =
    test <@ solve(2.0, 8.0, 8.0) = (-2.0, -2.0) @>
    test <@ solve(1.0, 1.0, -2.0) = (1.0, -2.0) @>
    test <@ solve(5.0 , 6.0, 1.0) = (-0.2, -1.0) @>
-   raises<System.Exception> <@ solve(1.0, 0.0, 1.0) @>
-   raises<System.Exception> <@ solve(0.0, 1.0, 1.0) @>
+   raises<Exception> <@ solve(1.0, 0.0, 1.0) @>
+   raises<Exception> <@ solve(0.0, 1.0, 1.0) @>
  

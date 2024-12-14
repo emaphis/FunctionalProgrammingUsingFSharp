@@ -1,6 +1,6 @@
 ﻿# Section 1.10 Free-standing programs
 
-A free standing program contains a `main` function of the type:
+A freestanding program contains a `main` function of the type:
 
 ```fsharp
 string[] -> int
@@ -28,7 +28,7 @@ let main(param: string[]) =
 
 See `Progran.fs` in this directory for an example.
 
-The program text can be simply be sequential lines of code without the boiler-plate in post dotnet 5 versions.
+The program text can be simply be sequential lines of code without the boilerplate in post dotnet 5 versions.
 
 The program can be compiled using the `dotnet fsc` compiler:
 

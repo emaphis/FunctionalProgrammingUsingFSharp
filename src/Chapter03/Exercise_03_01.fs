@@ -17,8 +17,8 @@ type Meridian = AM | PM
 
 /// check if time1 is less than time2 with times represented as triples: hours * minutes * meridian
 let lessthanT time1 time2 =
-    let (hour1, minute1, meridian1) = time1
-    let (hour2, minute2, meridian2) = time2
+    let hour1, minute1, meridian1 = time1
+    let hour2, minute2, meridian2 = time2
     (meridian1, hour1, minute1) < (meridian2, hour2, minute2)
 
 let time1 = (11, 59, AM)

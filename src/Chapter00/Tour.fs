@@ -10,11 +10,11 @@ namespace Tour
 //      https://learn.microsoft.com/dotnet/fsharp/tour
 //
 
-// Open namespace wusing `open` keyword
+// Open namespace using `open` keyword
 open System
 
 /// Modules are the primary way to organize functions and values in F#. This module contains some
-/// basic values involving basic numeric values computed in a few diferent ways.
+/// basic values involving basic numeric values computed in a few different ways.
 ///
 /// https://learn.microsoft.com/dotnet/fsharp/language-reference/modules
 module IntegersAndNumbers =
@@ -22,7 +22,7 @@ module IntegersAndNumbers =
     /// This is a simple integer.
     let sampleInteger = 176
 
-    /// This is a ssample floating point number.
+    /// This is a sample floating point number.
     let sampleDouble = 4.1
 
 
@@ -33,7 +33,7 @@ module IntegersAndNumbers =
     /// This is a list of the numbers from 0 to 99
     let sampleNumbers = [ 0 .. 99 ]
 
-    /// This is a list of all the tuples containing all the numbers from 0 to 99 and thier squares.
+    /// This is a list of all the tuples containing all the numbers from 0 to 99 and their squares.
     let sampleTableOfSquares = [ for i in 0 .. 99 -> (i, i*i) ]
 
     // The next line prints a list that includes tup;es, using an interpolated string.
@@ -48,12 +48,12 @@ module Immutability =
 
     /// Binding a value to a name via 'let' makes it immutable.
     ///
-    /// The second line of code compiles, but 'number' from that point onward will hsadow the previous definition
-    /// There is no way to access the previous definiton of 'number' due to shadowing.
+    /// The second line of code compiles, but 'number' from that point onward will shadow the previous definition
+    /// There is no way to access the previous definition of 'number' due to shadowing.
     let number = 2
     //let number = 3  // compilation error
 
-    /// A mutable binding. This is requred to be able to mutate the value of 'otherNumber'.
+    /// A mutable binding. This is required to be able to mutate the value of 'otherNumber'.
     let mutable otherNumber = 2
 
     printfn $"'otherNumber' is {otherNumber}"
@@ -73,7 +73,7 @@ module Immutability =
 module BasicFunctions =
 
     /// You use 'let' to define a function. This one accepts an integer argument and return an integer
-    /// Parentheses are optional for function arguements, except for when you use an explicit type annotations
+    /// Parentheses are optional for function arguments, except for when you use an explicit type annotations
     let sampleFunction1 x = x * x + 3
 
     /// Apply the function, naming the function return result using 'let'.
@@ -84,7 +84,7 @@ module BasicFunctions =
     // If 'result1' were not of type 'int', then the line would fail to compile.
     printfn $"The result of squaring the integer 4573 and adding 3 is %d{result1}"
 
-    /// When needed, annotate the type of a parameter name using '(argument:type)'. Parentheses are required.
+    /// When needed, annotate the type of parameter name using '(argument:type)'. Parentheses are required.
     let sampleFunction2 (x:int) = 2*x*x - x/5 + 3
 
     let result2 = sampleFunction2 (7 + 4)
@@ -119,7 +119,7 @@ module Booleans =
     /// Operators on booleans are 'not', '&&' and '||'
     let boolean3 = not boolean1 && (boolean2 || false)
 
-    // This line uses '%b'to print a boolean value.  This is type-safe.
+    // This line uses '%b' to print a boolean value.  This is type-safe.
     printfn $"The expression 'not boolean1 && (boolean2 || false)' is %b{boolean3}"
 
 
@@ -128,7 +128,7 @@ module Booleans =
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/string
 module StringManipulation =
 
-    /// Strings use doulbe quotes.
+    /// Strings use double quotes.
     let string1 = "Hello"
     let string2 = "world"
 
@@ -140,7 +140,7 @@ module StringManipulation =
 
 
     // This line uses '%s' to print a string value.  This is type-safe.
-    printfn "%s" helloWorld
+    printfn $"%s{helloWorld}"
 
     /// Substrings use the indexer notation.  This line extracts the first 7 characters as a substring.
     /// Note that like many languages, Strings are zero-indexed in F#,
@@ -158,17 +158,17 @@ module Tuples =
 
     /// A function that swaps the order of two values in a tuple
     ///
-    /// F# Type Inference will automatically generalize the functo to hava a genereic type,
+    /// F# Type Inference will automatically generalize the function to hava a generic type,
     /// meaning that it will work with any type
     let swapElems (a, b) = (b, a)
 
     let elems1 = swapElems(1, 2)
-    printfn $"Ther result of swapping (1, 2) is {elems1}"
+    printfn $"The result of swapping (1, 2) is {elems1}"
 
     /// Tuples are normally objects, but they can also be represented as structs.
     ///
     /// These interoperate completely with structs in C# and Visual Basic.NET; however,
-    /// struct tuples are not implicitly convertable with object tuples (often calle reference tuples).
+    /// struct tuples are not implicitly convertable with object tuples (often called reference tuples).
     ///
     /// The second line below will fail to compile because of this.  Uncomment it to see what happens.
     let sampleStructTuple = struct (1, 2)
@@ -189,7 +189,7 @@ module Tuples =
 /// See:
 ///     https://learn.microsoft.com/dotnet/fsharp/language-reference/functions/#function-composition-and-pipelining
 ///     https://learn.microsoft.com/dotnet/fsharp/language-reference/functions/#partial-application-of-arguments
-module PipelineAndCompostion =
+module PipelineAndComposition =
 
     /// Squares a value
     let square x = x * x
@@ -205,7 +205,7 @@ module PipelineAndCompostion =
     /// A list of 5 numbers.  More on lists later.
     let numbers = [ 1; 2; 3; 4; 5 ]
 
-    /// Given a list of integers, it filtrs out the even numbers,
+    /// Given a list of integers, it filters out the even numbers,
     /// squares the resulting odds, and adds 1 to the squared odds.
     let squaredOddValuesAndAddOne values =
         let odds = List.filter isOdd values
@@ -279,8 +279,8 @@ module Lists =
     /// 'yield' is used for on-demand evaluation. More on this later in Sequences.
     let daysList =
         [ for month in 1 .. 12 do
-            for day in 1 .. System.DateTime.DaysInMonth(2017, month) do
-                yield System.DateTime(2017, month, day) ]
+            for day in 1 .. DateTime.DaysInMonth(2017, month) do
+                yield DateTime(2017, month, day) ]
 
     // Print the first 5 elements of 'daysList' using 'List.take'.
     printfn $"The first 5 days of 2017 are: {daysList |> List.take 5}"
@@ -304,7 +304,7 @@ module Lists =
 
     printfn $"The squares of numbers form 1 to a 1000: {squares}"
 
-    /// There are many other list combinations. The following cumputes the sum of the squares of the
+    /// There are many other list combinations. The following computes the sum of the squares of the
     /// numbers divisible by 3.
     let sumOfSquares =
         numberList
@@ -314,7 +314,7 @@ module Lists =
     printfn $"The sum of the squares of numbers up to 1000 that are divisible by 3 is: %d{sumOfSquares}"
 
 
-/// Arrays are fixed-size, mutalbe collections of elements of the same type.
+/// Arrays are fixed-size, mutable collections of elements of the same type.
 ///
 /// Although they are similar to Lists (they support enumeration and have similar combinators for data processing).
 /// they are generally faster and support fast random access.  This comes at the cost of being less safe by being mutable.
@@ -322,7 +322,7 @@ module Lists =
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/arrays
 module Arrays =
 
-    /// This is the empty array.  Note taht the syntax is similar to that of lists, bur uses '[| ... |]' instead
+    /// This is the empty array.  Note that the syntax is similar to that of lists, bur uses '[| ... |]' instead
     let array1 = [| |]
 
     /// Arrays are specified using the same range of contructs as lists.
@@ -331,7 +331,7 @@ module Arrays =
     /// This is an array of numbers from 1 to 1000
     let array3 = [| 1 .. 1000 |]
 
-    /// Thiis an array containing only the words "hello" and "world"
+    /// This an array containing only the words "hello" and "world"
     let array4 =
         [|  for word in array2 do
                 if word.Contains("l") then
@@ -359,7 +359,7 @@ module Arrays =
     printfn $"The sum of the lengths of the words in Array 2 is: %d{sumOfLengthsOfWords}"
 
 
-/// Sequences are a logical series of elements, all of the same type.  These are a more general type than Lists or Arrays.
+/// Sequences are a logical series of elements, all the same type.  These are a more general type than Lists or Arrays.
 ///
 /// Sequences are evaluated on-demand and are re-evaluated each time they are iterated.
 /// An F# sequence is an alias for a .NET System.Collections.Generic.IEnumerable<'T>
@@ -387,7 +387,7 @@ module Sequences =
     /// This is a sequence producing the even numbers up to 2000.
     let evenNumbers = Seq.init 1001 (fun n -> n * 2)
 
-    let rnd = System.Random()
+    let rnd = Random()
 
     /// This is an infinite sequence which is a random walk.
     /// This examples uses yield! to return each element of a subsequence.
@@ -419,7 +419,7 @@ module RecursiveFunctions =
 
     /// Computes the greatest common factor of two integers.
     ///
-    /// Since all of the recursive calls are tail calls,
+    /// Since all the recursive calls are tail calls,
     /// the compiler will turn the function into a loop,
     /// which improves performance and reduces memory consumption.
     let rec greatestCommonFactor a b =
@@ -431,8 +431,8 @@ module RecursiveFunctions =
 
     /// This example computes the sum of a list of integers using recursion.
     ///
-    /// '::' is used to split a list inot the head and tail of the list,
-    /// the head being the first element and the tail being the reso of the list.
+    /// '::' is used to split a list not the head and tail of the list,
+    /// the head being the first element and the tail being the resolution of the list.
     let rec sumList xs =
         match xs with
         | []    -> 0
@@ -450,7 +450,7 @@ module RecursiveFunctions =
         | y::ys -> sumListTailRecHelper (accumulator+y) ys
 
     /// This invokes the tail recursive helper function, providing '0' as a seed accumulator.
-    /// An opproach like this is common in F#.
+    /// An approach like this is common in F#.
     let sumListTailRecursive xs = sumListTailRecHelper 0 xs
 
     let sum2 = sumListTailRecursive oneThroughTen
@@ -458,7 +458,7 @@ module RecursiveFunctions =
 
 
 /// Records are an aggregate of named values, with optional members (such as methods).
-/// They are immutable and have structural equality semantix.
+/// They are immutable and have structural equality semantics.
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/records
 module RecordTypes =
@@ -512,8 +512,8 @@ module RecordTypes =
           Verified = false
           Address = "111 Alf Street" }
 
-    // Members are accessed via the '.' operator on an instantiated typel
-    printfn $"Alfs' alternative contact card is {contactAlternate.PrintedContactCard}"
+    // Members are accessed via the '.' operator on an instantiated type
+    printfn $"Alf's' alternative contact card is {contactAlternate.PrintedContactCard}"
 
     /// Records can also be represented as structs via the 'Struct' attribute.
     /// This is helpful in situations where the performance of structs outweighs
@@ -525,7 +525,7 @@ module RecordTypes =
           Verified  : bool }
 
 
-/// Disctiminated Unions (DU for short) are values which could be a number of named forms or cases.
+/// Discriminated Unions (DU for short) are values which could be a number of named forms or cases.
 /// Data stored in DUs can be on of several distinct values.
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/discriminated-unions
@@ -538,9 +538,9 @@ module DiscriminatedUnions =
         | Diamonds
         | Spades
 
-    /// A Disctiminated Union can also be used to represent the rank of a playing card.
+    /// A Discriminated Union can also be used to represent the rank of a playing card.
     type Rank =
-        /// Represents the ran of cards 2 .. 10
+        /// Represents the ran of cards 2..10
         | Value of int
         | Ace
         | King
@@ -565,7 +565,7 @@ module DiscriminatedUnions =
             for rank in Rank.GetAllRanks() do
                 yield { Suite = suite; Rank = rank } ]
 
-    /// This exmple converts a 'Card' object to a string.
+    /// This example converts a 'Card' object to a string.
     let showPlayingCard (c: Card) =
         let rankString =
             match c.Rank with
@@ -590,7 +590,7 @@ module DiscriminatedUnions =
     do printAllCards()
 
 
-    // Single-case DUs are often used for domain modeling.  This can buy you extra type sefety
+    // Single-case DUs are often used for domain modeling.  This can buy you extra type safety
     // over primitive types such as strings and ints.
     //
     // Single-case DUs cannot be implicitly converted to or from the type they wrap.
@@ -610,7 +610,7 @@ module DiscriminatedUnions =
     let unwrapName (Name n) = n
     let unwrapSSN (SSN s) = s
 
-    // Printing single-case DUs is simple with unwrattping functions.
+    // Printing single-case DUs is simple with unwrapping functions.
     printfn $"Address: {address |> unwrapAddress}, Name: {name |> unwrapName}, and SNN: {ssn |> unwrapSSN}"
 
     /// Discriminated Unions also support recursive definitions.
@@ -618,7 +618,7 @@ module DiscriminatedUnions =
     /// This represents a Binary Search Tree, with one case being the Empty tree,
     /// and the other being a Node with a value and two subtrees.
     ///
-    /// Note: 'T here is a type parameter, indicating that 'BST' is a genereic type.
+    /// Note: 'T here is a type parameter, indicating that 'BST' is a generic type.
     /// More on generics later.
     type BST<'T> =
         | Empty
@@ -643,7 +643,7 @@ module DiscriminatedUnions =
         | Node(x, left, right) as node ->
             if item = x then node  // No need to insert, it already exists; return the node
             elif item < x then Node(x, insert item left, right)  // Call into left subtree
-            else Node(x, left, insert item right)  // Call into right subreee.
+            else Node(x, left, insert item right)  // Call into right subtree.
 
     /// Discriminated Unions can also be represented as structs via the 'Struct' attribute.
     /// This is helpful in situations where the performance of structs outweighs
@@ -660,14 +660,14 @@ module DiscriminatedUnions =
 
 
 /// Pattern Matching is a feature of F# that allows you to utilize Patterns,
-/// which are a way to compare data with a logical structue or structures,
+/// which are a way to compare data with a logical structure or structures,
 /// decompose data into constituent parts, or extract information from data in various ways.
 /// You can then dispatch on the "shape" of a pattern via Pattern Matching
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/pattern-matching
 module PatternMatching =
 
-    open System
+    //open System
 
     /// A record for a person's first and last name
     type Person = {
@@ -688,33 +688,33 @@ module PatternMatching =
     /// names given in the DU definition above.
     let rec countReports(emp: Employee) =
         1 + match emp with
-            | Engineer(person) -> 0
-            | Manager(person, reports) ->
+            | Engineer(_person) -> 0
+            | Manager(_person, reports) ->
                 reports |> List.sumBy countReports
-            | Executive(person, reports, assistant) ->
+            | Executive(_person, reports, assistant) ->
                 (reports |> List.sumBy countReports) + countReports assistant
 
     /// Find all managers/executives named "Dave" who do not have any reports.
     /// This uses the 'function' shorthand to define a lambda
-    let findDaveWithOpenPosition(emps : List<Employee>) =
-        emps
+    let findDaveWithOpenPosition(employees : List<Employee>) =
+        employees
         |> List.filter(function
                                 | Manager({First = "Dave"}, []) -> true
                                 | Executive({First = "Dave"}, [], _) -> true
                                 | _ -> false)
 
-    /// You can also use the shorthand function construct for pattern matiching,
+    /// You can also use the shorthand function construct for pattern matching,
     /// which is useful when you're writing function which make use of Partial Application
     let private parseHelper (f: string -> bool * 'T) = f >> function
-        | (true, item) -> Some item
-        | (false, _) -> None
+        | true, item -> Some item
+        | false, _ -> None
 
     let parseDateTimeOffset = parseHelper DateTimeOffset.TryParse
 
     let result1 =  parseDateTimeOffset "1970-01-01"
 
     do match result1 with
-       | Some dto -> printfn "It parsed!"
+       | Some _Sdto -> printfn "It parsed!"
        | None -> printfn "It didn't parse!"
 
     // Define some more functions which parse with the helper function.
@@ -723,7 +723,7 @@ module PatternMatching =
     let parseTimeSpan = parseHelper TimeSpan.TryParse
 
     // Active Patterns are another powerful construct to use with pattern matching
-    // They allow you to partition input data into custome forms, decomposing them at the Pattern Match call site
+    // They allow you to partition input data into customer forms, decomposing them at the Pattern Match call site
     //
     // See: see: https://learn.microsoft.com/dotnet/fsharp/language-reference/active-patterns
     let (|Int|_|) = parseInt
@@ -749,7 +749,7 @@ module PatternMatching =
 
 /// Option values are any kind of value tagged with either 'Some' or 'None'.
 /// They are used extensively in F# code to represent the cases where many other
-/// kanguages would use nill references.
+/// languages would use nil references.
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/options
 module OptionValues =
@@ -768,9 +768,9 @@ module OptionValues =
 
     /// Next, calculate a shipping zone for a customer using a calculator instance.
     /// This uses combinators in the Option module to allow a functional pipeline for
-    /// transfering data with Optionals
-    let CustomerShippingZone (calculator: IShippingCalculator, custormer: Customer) =
-        custormer.ZipCode
+    /// transferring data with Optionals
+    let CustomerShippingZone (calculator: IShippingCalculator, customer: Customer) =
+        customer.ZipCode
         |> Option.bind calculator.GetState
         |> Option.map calculator.GetShippingZone
 
@@ -804,7 +804,7 @@ module UnitsOfMeasure =
     printfn $"After a %f{sampleValue1} race I would walk %f{sampleValue2} miles which would be %f{sampleValue3} meters"
 
 
-/// Clases are a way of defining new object types in F#, and support standard Object-orientd constructs.
+/// Classes are a way of defining new object types in F#, and support standard Object-oriented constructs.
 /// They can hava a variety of members (methods, properties, events etc.)
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/classes
@@ -817,7 +817,7 @@ module DefiningClasses =
     /// and takes two arguments: dx and dy, both type 'double'
     type Vector2D(dx: double, dy: double) =
 
-        /// This internal fields stores the length of the vectos, computed when the
+        /// This internal fields stores the length of the vectors, computed when the
         /// object is constructed
         let length = sqrt(dx*dx + dy*dy)
 
@@ -842,14 +842,14 @@ module DefiningClasses =
 
 
 /// Generic classes allow types to be defined with respect to a set of type parameters.
-/// Int the following, 'T is the type prarmetr for the class.
+/// Int the following, 'T is the type parameter for the class.
 ///
 /// See: https://learn.microsoft.com/dotnet/fsharp/language-reference/generics/
 module DefiningGenericClasses =
 
     type StateTracker<'T>(initialElement: 'T) =
 
-        /// This internal field stores the states in a a list.
+        /// This internal field stores the states in a list.
         let mutable states = [ initialElement ]
 
         /// Add a new element to the list of states.
@@ -885,8 +885,8 @@ module ImplementingInterfaces =
 
         member this.ReadLine() = file.ReadLine()
 
-        /// This is the implementation of IDisposable members.
-        interface System.IDisposable with
+        // This is the implementation of IDisposable members.
+        interface IDisposable with
             member this.Dispose() = file.Close()
 
 
@@ -894,7 +894,7 @@ module ImplementingInterfaces =
     /// Unlike other languages such as C# or Java, a new type definition is not needed
     /// to implement an interface.
     let interfaceImplementation =
-        { new System.IDisposable with
+        { new IDisposable with
             member this.Dispose() = printfn " disposed" }
 
 
@@ -902,7 +902,7 @@ module ImplementingInterfaces =
 /// you use some functions for parallel processing over arrays.
 ///
 /// See: https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-arraymodule-parallel.html
-module ParallelaArrayProgramming =
+module ParallelArrayProgramming =
 
     /// First, an array of inputs.
     let oneBigArray = [| 0 .. 100000 |]

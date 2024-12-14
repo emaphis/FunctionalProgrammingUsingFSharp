@@ -5,7 +5,7 @@
         Hint: Use the function System.Math.Sqrt.
 *)
 
-/// Calculate the Sqrt of the squars of two given integers.
+/// Calculate the Sqrt of the squares of two given integers.
 let h(x, y) =
     System.Math.Sqrt(x * x + y * y)
 

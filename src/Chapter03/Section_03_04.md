@@ -32,7 +32,7 @@ $john \mapsto \{ age \mapsto 29, birthday \mapsto (2,11), name \mapsto "John", s
 
 Records create local environments. It contains a local binding from label to value.
 
-Individual components can be accesed with dot `.` notation.
+Individual components can be accessed with dot `.` notation.
 
 ```fsharp
 let bday = john.birthday
@@ -70,7 +70,7 @@ v1'>v2'
 // val it: bool = true
 ```
 
-`v1` is smaller than `v2` because the label `a` occures first in the record type `T1` and `v1.a=1` is smaller than `v2.a=2` while `v1'` is larger tahn `v2` because the label `b` occures first in the reocred type `T2` and it's value is larger.
+`v1` is smaller than `v2` because the label `a` occurs first in the record type `T1` and `v1.a=1` is smaller than `v2.a=2` while `v1'` is larger than `v2` because the label `b` occurs first in the record type `T2` and it's value is larger.
 
 ## Record patterns
 
@@ -80,7 +80,7 @@ $$
 \space \{ \space name = x; \space age = y; \space sex = s; \space birthday =(d,m) \space \}
 $$
 
-Generates bindings for `x, y, s, d` and `m` when matched against a person reorcd.
+Generates bindings for `x, y, s, d` and `m` when matched against a person record.
 
 ```fsharp
 let sue = { name="Sue"; age = 19; sex="F";

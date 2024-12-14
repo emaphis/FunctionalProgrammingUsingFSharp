@@ -1,6 +1,6 @@
 # Chapter 3 - Tuples, records and tagged values
 
-Compound values created with tuples, records and tagged values (descriminated unions).
+Compound values created with tuples, records and tagged values (discriminated unions).
 
     3 Tuples, records and tagged values 43
     3.1 Tuples 43

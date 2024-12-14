@@ -1,7 +1,5 @@
 ﻿module Chapter02.Exercise_02_01
 
-
-
 (*
     Exercise 2.1
     Declare a function f: int -> bool such that f(n) = true exactly when n is divisible by 2

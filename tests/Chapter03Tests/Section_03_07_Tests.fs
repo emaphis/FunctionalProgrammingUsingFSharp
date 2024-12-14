@@ -18,7 +18,7 @@ let ``Test Example 3.7: Rational number canc`` () =
 let ``Test Example 3.7, mkQ``() =
     test <@ mkQ(5,10) = (1,2) @>
     test <@ mkQ(2, -3) = (-2,3) @>
-    raises<System.Exception> <@ mkQ(5, 0) @>
+    raises<Exception> <@ mkQ(5, 0) @>
  
  
 [<Fact>]

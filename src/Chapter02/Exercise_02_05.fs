@@ -13,9 +13,9 @@
 
 let isIthchar(str: string, i, ch) =    str[i] = ch
 
-// Use occFromIth for Excercise. 2.4
+// Use occFromIth for Exercise. 2.4
 
-/// Occurences of char ch from i.
+/// Occurrences of char ch from i.
 let rec occFromIth(str, i, ch) =
     if i >= String.length str
     then 0

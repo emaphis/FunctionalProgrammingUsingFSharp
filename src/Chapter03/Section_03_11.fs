@@ -3,7 +3,7 @@
 module Section_03_11
 
 (*
-    A function 'f' is a 'partial' functionon a set 'A' if the domaine of 'f' is a
+    A function 'f' is a 'partial' function a set 'A' if the domain of 'f' is a
     proper subset of 'A.'  So the factorial function is a partial function
     of the set of integers because it is undefined on negative integers.
 
@@ -15,7 +15,7 @@ module Section_03_11
 
     3. The evaluation of the function returns a special result.
 
-    The third option can used the predefubed 'option' tyoe:
+    The third option can use the predefined 'option' type:
 *)
 
 //type 'a option = None | Some of 'a
@@ -25,12 +25,12 @@ module Section_03_11
     and 'Some v' when the function evaluation has the value 'v'
 *)
 
-// The constructor 'Some' is polymorphic and can be aplied to any value type
+// The constructor 'Some' is polymorphic and can be applied to any value type
 
 let res1 = Some false
 // val res1 bool option = Some false
 
-// the library function 'get' removes the 'Some' from the falue.
+// the library function 'get' removes the 'Some' from the failure.
 
 let fun1 = Option.get
 // val fun1: ('a option -> 'a)

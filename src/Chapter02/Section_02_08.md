@@ -1,6 +1,6 @@
 ﻿# 2.8 Closures
 
-A `closure` give the means of explaining a value thas is a function. A closure is a triple:
+A `closure` give the means of explaining a value that is a function. A closure is a triple:
 
 $$
 (x, exp, env)
@@ -47,7 +47,7 @@ circleArea& \mapsto (r, pi * r * r, [pi \mapsto 3.14159 ...])
 \end{align*}
 $$
 
-A new binding of `pi` doesn not effect the meaning of the `circleArea`function since closures in F# are static:
+A new binding of `pi` does not affect the meaning of the `circleArea`function since closures in F# are static:
 
 ```fsharp
 let pi = 0

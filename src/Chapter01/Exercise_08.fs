@@ -8,8 +8,8 @@
         let f a = a + 1;;
         let g b = (f b) + a;;
 
-    Find the environment obtained from these declarations and write the evaluations of the expres
-    sions f 3 and g 3.
+    Find the environment obtained from these declarations and write the evaluations of
+    the expressions f 3 and g 3.
  *)
 
  let a = 5

@@ -47,13 +47,13 @@ let solution1 = solveText (1.0, 0.0, 1.0)
 
 let mkQ =
     function
-    | (_,0)  -> failwith "Division by zero"
+    | _, 0  -> failwith "Division by zero"
     | pr ->  (fst pr) / (snd pr)
 
 
 let output =
     try
-        (mkQ(2, 0)).ToString()
+        mkQ(2, 0).ToString()
     with
     | Failure s -> s
 

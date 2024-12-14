@@ -1,6 +1,6 @@
 ﻿// 2.5 Overloaded functions and operators
 
-// + can be used to add floats, integers, and concatenaate strings
+// + can be used to add floats, integers, and concatenate strings
 
 // If the type can be inferred from the context.
 
@@ -19,7 +19,7 @@ let squareF1 (x: float) = x * x
 let squareF2 x = x * x : float
 // val squareF2: x: float -> float
 
-// or chosing a to build from a typed function:
+// or choosing a to build from a typed function:
 // abs, acos, atan, atan2, ceil, cos, cosh, exp, floor, log
 // log10, pow, pown, round, sin, sinh, sqrt, tan, tanh
 

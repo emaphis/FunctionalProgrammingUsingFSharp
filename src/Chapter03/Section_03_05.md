@@ -8,7 +8,7 @@ $$
 
 of real coefficients `a, b, c`.
 
-The equation has no solutionf in real numbers if the `discriminant` $b^2 - 4ac$ is negative. if  $b^2 - 4ac \geq 0$ and $a \neq 0$, then the equation as solutions $x_1$ and $x_2$.
+The equation has no solution in real numbers if the `discriminant` $b^2 - 4ac$ is negative. if  $b^2 - 4ac \geq 0$ and $a \neq 0$, then the equation as solutions $x_1$ and $x_2$.
 
 So:
 
@@ -37,7 +37,7 @@ See: `QuadraticEquation.fs` for code of this example.
 
 ## Error handling
 
-`solve` must produce and error me ssage when $b^2 - 4ac < 0$ or $a = 0$. We can signal errors using an `exception` through and `exception declaration`.
+`solve` must produce and error message when $b^2 - 4ac < 0$ or $a = 0$. We can signal errors using an `exception` through and `exception declaration`.
 
 ```fsharp
 exception Solver

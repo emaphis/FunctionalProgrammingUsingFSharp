@@ -7,7 +7,7 @@ open Swensen.Unquote
 open Chapter02.Exercise_02_08
 
 [<Fact>]
-let ``Test exercise 2_8 bin (coeficient) function`` () =
+let ``Test exercise 2_8 bin (coefficient) function`` () =
     test <@ bin(0,0) = 1 @>
     test <@ bin(1,0) = 1 @>
     test <@ bin(1,1) = 1 @>

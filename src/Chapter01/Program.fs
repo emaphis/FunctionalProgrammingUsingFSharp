@@ -4,5 +4,5 @@ open System
 
 [<EntryPoint>]
 let main(param: string[]) =
-    printfn "Hello %s\n" param[0]
+    printfn $"Hello %s{param[0]}\n"
     0

@@ -1,6 +1,6 @@
 # 3.2 Polymorphism
 
-Consider the function `swap` interchanging compentents of a pair.
+Consider the function `swap` interchanging components of a pair.
 
 ```fsharp
 let swap (x,y) = (y,x);;
@@ -9,13 +9,13 @@ let swap (x,y) = (y,x);;
 swap ('a', "ab");;
 // val it: string * char = ("ab", 'a')
 
-swap ((1,3),("ab",true));;
+swap ((1, 3),("ab", true));;
 // val it: (string * bool) * (int * int) = (("ab", true), (1, 3))
 ```
 
 Swap has two different type variables $'a$ and $'b$.  Type variables cans stand in for many types in polymorphic functions
 
-`fst` and `snd` are two built in functions that operate on tuples.
+`fst` and `snd` are two built-in functions that operate on tuples.
 
 $$
 fst : \space 'a \space * \space 'b \space -> \space 'a \quad \text{  and  } \quad snd : \space 'a \space * \space -> \space 'b

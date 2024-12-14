@@ -11,7 +11,7 @@ where $x$ is a real number and $n$ is a natural number.
 The under-brace part of the express below for $x^n$ is the expression of $x^{n-1}$:
 
 $$
-x^n = x\cdot\underbrace{x \cdot ... \cdot x}_{x^{n-1}} \quad n \text{ occurences of } x, \text{ when } n > 0
+x^n = x\cdot\underbrace{x \cdot ... \cdot x}_{x^{n-1}} \quad n \text{ occurrences of } x, \text{ when } n > 0
 $$
 
 Using the convention: $x^n=1$, the function can be characterized by the recursion formula:

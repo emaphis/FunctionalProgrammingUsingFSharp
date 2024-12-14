@@ -1,6 +1,6 @@
 ﻿# Section 2.2 Operator precedence and association
 
-## Artithmetic operators
+## Arithmetic operators
 
     + unary plus
     - unary minus

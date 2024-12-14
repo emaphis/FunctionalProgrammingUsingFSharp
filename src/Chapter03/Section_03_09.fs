@@ -6,8 +6,8 @@ module Section03_09
 
 type Colour = Red | Blue | Green | Yellow | Purple
 
-// These types are called `enumeration types` as a declaration like 'Coulour'
-// just enumerates five constuctors
+// These types are called `enumeration types` as a declaration like 'Colour'
+// just enumerates five constructors
 
 // Each constructor is a value of type 'Colour'
 
@@ -26,7 +26,7 @@ let niceColour = function
 let nice1 = niceColour Purple
 // val nice1: bool = false
 
-// The days in a mont example from Chapter 1 cam be expressed using an enumeation
+// The days in a mont example from Chapter 1 cam be expressed using an enumeration
 
 type Month =
     | January | February | March | April

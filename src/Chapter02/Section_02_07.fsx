@@ -1,6 +1,6 @@
 ﻿// 2.7 Functions are first-class citizens
 
-// Gentle introduction to this concept, which also is known as higher-order funct
+// Gentle introduction to this concept, which also is known as higher-order function
 
 // The value of a function can be a function:
 
@@ -61,7 +61,7 @@ let num5 = ((fun y -> y+3) << (fun x -> x*x)) 4
 let weight ro = fun x -> ro * x ** 3.0
 // val weight: ro: float -> x: float -> float
 
-// We can make partial evaluations of the function weight to define functions for computing the
+// We can make partial evaluations of the function weight to define functions for computing the
 // weight of a cube of either water or methanol (having the densities `1000kg/m^3` and `786.5kg/m^3
 
 let waterWeight = weight 1000.0
@@ -81,6 +81,3 @@ let weight3 = methanolWeight 1.0
 
 let weight4 = methanolWeight 2.0
 // val weight3: float = 6292.0
-
-
-1

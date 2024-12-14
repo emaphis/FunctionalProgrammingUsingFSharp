@@ -2,7 +2,7 @@
 
 module Chapter03.QuadraticEquation
 
-// The declaration of solve with error handling and locally defined functions and constangs.
+// The declaration of solve with error handling and locally defined functions and constants.
 
 let solve (a, b, c) =
     let disc = b*b - 4.0 * a * c

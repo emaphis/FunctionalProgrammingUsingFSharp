@@ -1,8 +1,8 @@
 ﻿# 3.6 Locally declared identifiers
 
-For functions and variables only useful for the definition of a function it's convenient to decare identifiers locally.
+For functions and variables only useful for the definition of a function it's convenient to declare identifiers locally.
 
-The expresion $b \cdot b - 4.0 \cdot a \cdot c$ is evaluated and declared three times in `solve`. This is bad from a readability and efficiency view.
+The expression $b \cdot b - 4.0 \cdot a \cdot c$ is evaluated and declared three times in `solve`. This is bad from a readability and efficiency view.
 
 Declare a local identifier for `discrimanent`.
 

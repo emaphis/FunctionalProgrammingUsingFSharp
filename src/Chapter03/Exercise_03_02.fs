@@ -22,8 +22,6 @@ let rec normalize (pounds, shillings, pence) =
         normalize (pounds,shillings + pence / 12, pence%12)
     | (pounds, shillings, pence) when shillings >= 20 ->
         normalize (pounds + shillings/20,shillings%20, pence%12)
-    
-    
     | (pounds, shillings, pence) -> (pounds, shillings, pence)
     
 

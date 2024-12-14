@@ -5,7 +5,7 @@ module Chapter03.Section_03_07
 // A rational number `q` is a fraction `q=a/b` where 'a' and 'b' are integers with `b <> 01.
     
 // Representation, Invariant.
-// We use (a,b) where b>0 and a/b is irreducable where `gcd(a,b) = 1`.
+// We use (a,b) where b>0 and a/b is irreducible where `gcd(a,b) = 1`.
 // The value (a,b) of type `int * int` where `b != 0` and `gcd(a,b) = 1` is the
 // `invariant` of rational numbers.
 
@@ -41,7 +41,7 @@ let mkQ =
 
 // Operators on rational numbers
 
-/// Adition
+/// Addition
 let (.+.) (a, b) (c, d) = canc(a*d + b*c, b*d)
 
 /// Subtraction

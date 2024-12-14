@@ -11,7 +11,7 @@ let rec fact = function
     | n -> n * fact(n-1)
 
 // [<Fact>]
-// let ``Test for overflow due to eagaer evaluation``() =
+// let ``Test for overflow due to eager evaluation``() =
 //     raises<StackOverflowException> <@ testIt(false, (fact -1)) @>
 
 [<Fact>]

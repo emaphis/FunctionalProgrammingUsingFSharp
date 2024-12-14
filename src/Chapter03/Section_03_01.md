@@ -14,13 +14,13 @@ let tpl2 = (("abc", 1), -3)
 
 A $2-tuple$ is a called a pair. The second example is a pair contains another pair.
 
-A 3-tuple is called a triple and a 4-tuple is calle a quadruple. There ae no 1-tuples or 0-tuples. An expression like $(true)$ is not a tuple but just the expression $true$ enclosed by parentheses.
+A 3-tuple is called a triple and a 4-tuple is called a quadruple. There ae no 1-tuples or 0-tuples. An expression like $(true)$ is not a tuple but just the expression $true$ enclosed by parentheses.
 
 The symbol $()$ is the only value of `unit`.
 
 ## Tuple expressions
 
-A tuple expression $(expr_1, expr_2, ..., expr_n)$ is formed by enclosing $n$ expressions $expr_1, expre_2, ..., expr_n$ in parentheses.  It has the type $\tau_1 * \tau_2 * ... \tau_n$ when $expr_1, expr_2, ..., expr_n$ have the types $\tau_1 * \tau_2 * ... \tau_n$.
+A tuple expression $(expr_1, expr_2, ..., expr_n)$ is formed by enclosing $n$ expressions $expr_1, expr_2, ..., expr_n$ in parentheses.  It has the type $\tau_1 * \tau_2 * ... \tau_n$ when $expr_1, expr_2, ..., expr_n$ have the types $\tau_1 * \tau_2 * ... \tau_n$.
 
 For example:
 
@@ -28,10 +28,10 @@ For example:
 let tpl3 =(1<2,"abc",1,1-4);;
 // val tpl3: bool * string * int * int = (true, "abc", 1, -3)
 
-let tpl4 = (true,"abc");;
+let tpl4 = (true, "abc");;
 // val tpl4: bool * string = (true, "abc")
 
-let tpl5 = ((2>1,"abc"),3-2,-3);;
+let tpl5 = ((2>1,"abc"), 3-2, -3);;
 // val tpl5: (bool * string) * int * int = ((true, "abc"), 1, -3)
 ```
 
@@ -49,7 +49,7 @@ let t2 = (t1, 1, -3)
 
 ## Equality
 
-Equality is defined for tuples of the same type, if equality is defined for all of the subcomponents. Equality is calculated in order. $(v_1,v_2, ..., v_n)$ is equal to $(v_1', v_2', ... , v_n')$ if $v_1$ is equal to $v_1'$, of $1 \leq i \leq n$.
+Equality is defined for tuples of the same type, if equality is defined for all the subcomponents. Equality is calculated in order. $(v_1,v_2, ..., v_n)$ is equal to $(v_1', v_2', ... , v_n')$ if $v_1$ is equal to $v_1'$, of $1 \leq i \leq n$.
 
 ```fsharp
 ("abc", 2, 4, 9) = ("ABD", 2, 3, 9);;
@@ -69,7 +69,7 @@ The last example, the types don't match.
 
 ## Ordering
 
-Using the `ordering` operators $>, \geq, <, and \leq$ and the `compare` functon are defined on tuples of the same type, assuming that ordering is defined on the components. Tuples are ordered lexicographically.
+Using the `ordering` operators $>, \geq, <, and \leq$ and the `compare` function are defined on tuples of the same type, assuming that ordering is defined on the components. Tuples are ordered lexicographically.
 
 $$
 (x_1, x_2, ..., x_n) < (y_1,y_2,...,y_n)

@@ -21,8 +21,8 @@ type Shape =
     Constructors and values
 
     'Circle', 'Square' and 'Triangle' tagged values are bound constructors
-    for type 'Shape. 'Circle' is a value constructor of type `float -> Shapre` whece
-    Shapre is a subtype 'Circle' of the 'Shape' type.
+    for type 'Shape. 'Circle' is a value constructor of type `float -> Shape`
+    where Shape is a subtype 'Circle' of the 'Shape' type.
 *)
 
 let shape1 = Circle 1.2
@@ -40,7 +40,7 @@ let shape3 = Circle (8.0 - 2.0 * 3.4)
 (*
     Equality and ordering
 
-    Equality and ordering are defined for taggeg values if they are
+    Equality and ordering are defined for tagged values if they are
     defined for their components.
 
     Two tagged values are equal if they have the same constructor and
@@ -65,7 +65,7 @@ let area' = function
 
 // val area: _arg1: Shape -> float
 
-// Pattern matching treats constructors diefferently for other identifiers:
+// Pattern matching treats constructors differently for other identifiers:
 
     // A constructor matches itself only in a pattern match
     // while other identifiers match any value
@@ -87,7 +87,7 @@ let area2 = area' (Triangle (3.0, 4.0, 5.0))
 
 // Invariant for the representation of shapes
 
-// Not all values of shapes represent geometric shapes, ie: `Cirlce -1.0` and
+// Not all values of shapes represent geometric shapes, ie: `Circle -1.0`
 //  and 'Square -2.0' are invalid shapes.
 
 let shape4 = Triangle (3.0, 4.0, 7.5)

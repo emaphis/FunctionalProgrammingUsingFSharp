@@ -3,7 +3,7 @@
 module Section03
 
 (*
-    A function can be created in F# without getting any name. This is done by evaluating a function expression,
+    A function can be created in F# without getting any name. This is done by evaluating a function expression,
     that is an expression where the value is a function.
 *)
 
@@ -18,7 +18,7 @@ let area2 = (fun r -> System.Math.PI * r * r) 2.0
 
 let circleArea = fun r -> System.Math.PI * r * r
 
-// Function Expressionss with patterns
+// Function Expressions with patterns
 
 // It is often convenient to define a function in terms of a number of cases.
 

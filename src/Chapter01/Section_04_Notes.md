@@ -2,7 +2,7 @@
 
 Recursive functions are define with at least two cases:
   A base case which ends the recursive
-  And a recursive case which makes the recursive call on on simpler arguments
+  And a recursive case which makes the recursive call on simpler arguments
 
 This section introduces the concept of recursion formula and recursive declaration of functions by an example: the factorial function n!.
 
@@ -21,7 +21,7 @@ $$4! = 1 \cdot 2 \cdot 3 \cdot 4 = 24$$
 
 ## Recursion formula
 
-The underbraced part of the below expression for $n!$ is the expression for $(n − 1)!$
+The under braced part of the below expression for $n!$ is the expression for $(n − 1)!$
 
 $$
 n! = \underbrace{1 \cdot 2 \cdot ... \cdot (n - 1) \cdot n}_{n-1}! \cdot n \space \space  for \space n > 1

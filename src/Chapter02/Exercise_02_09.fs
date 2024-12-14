@@ -36,7 +36,7 @@
 
 /// Calculate the factorial of 'x' * y
 let rec f = function
-    | (0,y) -> y
-    | (x,y) -> f(x-1, x*y)
+    | 0, y -> y
+    | x, y -> f(x-1, x*y)
 
 // val f: int * int -> int

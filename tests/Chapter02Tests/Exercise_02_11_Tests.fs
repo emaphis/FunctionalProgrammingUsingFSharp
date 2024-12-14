@@ -2,7 +2,6 @@
 module Chapter02.Exercise_02_11_Tests
 open System
 open Xunit
-open Swensen.Unquote
 
 open Chapter02.Exercise_02_11
 
