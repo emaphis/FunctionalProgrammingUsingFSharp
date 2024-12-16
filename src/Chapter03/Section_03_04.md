@@ -28,7 +28,7 @@ val john: Person = { age = 29
 
 The following bindings are created:
 
-$john \mapsto \{ age \mapsto 29, birthday \mapsto (2,11), name \mapsto "John", sex \mapsto "M" \}$
+$john \mapsto \{ age \mapsto 29, birthday \mapsto (2,11), name \mapsto "John", sex \mapsto "M" \space \}$
 
 Records create local environments. It contains a local binding from label to value.
 
@@ -83,8 +83,9 @@ $$
 Generates bindings for `x, y, s, d` and `m` when matched against a person record.
 
 ```fsharp
-let sue = { name="Sue"; age = 19; sex="F";
-            birthday = (24,12) }
+let sue = { name = "Sue"; age = 19; sex="F";
+            birthday = (24, 12) }
+
 let {name = x; age = y; sex = s; birthday = (d,m)} = sue
 
 // val y: int = 19
@@ -97,7 +98,7 @@ let {name = x; age = y; sex = s; birthday = (d,m)} = sue
 Records patterns are used in defining functions on records.
 
 ```fsharp
-let age {age = a; name = _; sex = _; birthday = _} = a
+let age { age = a; name = _; sex = _; birthday = _ } = a
 // val age: Person -> int
 
 let isYoungLady { age = a; sex = x; name = _; birthday = _ } =
@@ -113,3 +114,6 @@ isYoungLady john
 isYoungLady sue
 // val it: bool = true
 ```
+
+The type of the above functions can be inferred from the context since `name`, `age`, and so
+on are labels of the record type `Person` only.

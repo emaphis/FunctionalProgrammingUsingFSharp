@@ -13,7 +13,7 @@ The equation has no solution in real numbers if the `discriminant` $b^2 - 4ac$ i
 So:
 
 $$
-x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \qquad \text{ and } \qquad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}
+x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \quad \text{ and } \quad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}
 $$
 
 Note that $x_1 = x_2$ if $b^2 - 4ac = 0$.
