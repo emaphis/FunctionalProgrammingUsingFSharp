@@ -7,13 +7,14 @@
     and f(30) and compare with the result. Hint: n is divisible by q when n%q = 0.
 *)
 
-/// Return true if 'n' is even
+/// Return true if 'n' is divisible by 2 and 3 but not 5
 let f n =
-    n % 2 = 0
+    let divBy num n = num % n = 0
+    (not (divBy n 5)) && (divBy n 2 || divBy n 3)
 
 // val f: n: int -> bool
 
-// f(24) = true
-// f(27) = false
-// f(29) = false
-// f(30) = true
+//f(24) = true
+//f(27) = true
+//f(29) = false
+//f(30) = false

@@ -14,8 +14,8 @@
 
 /// String power function
 let rec pow(s, n) =
-    match s, n with
-    | _, n when n = 0 -> ""
-    | s, n  -> s + pow(s, n-1)
+    match n with
+    | n when n = 0 -> ""
+    | n  -> s + pow(s, n-1)
 
 // val pow: s: string * n: int -> string

@@ -20,11 +20,8 @@
     <None Include="Section_02_11.fsx" />
     <Compile Include="Exercise_02_01.fs" />
     <Compile Include="Exercise_02_02.fs" />
-    <Compile Include="Exercise_02_03.fs" />
-    <Compile Include="Exercise_02_04.fs" />
-    <Compile Include="Exercise_02_05.fs" />
-    <Compile Include="Exercise_02_06.fs" />
-    <Compile Include="Exercise_02_07.fs" />
+    <Compile Include="Exercise_02_03_to_05.fs" />
+    <Compile Include="Exercise_02_06_and_07.fs" />
     <Compile Include="Exercise_02_08.fs" />
     <Compile Include="Exercise_02_09.fs" />
     <Compile Include="Exercise_02_10.fs" />

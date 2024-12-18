@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="README.md" />
     <Compile Include="Tour.fs" />
-    <None Include="Notes00.md" />
     <None Include="MathFormating.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
