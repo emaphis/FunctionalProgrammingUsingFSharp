@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Notes01.md" />
+    <Content Include="README.md" />
     <Content Include="Section01.fsx" />
     <Compile Include="Section02.fs" />
     <Compile Include="Section03.fs" />

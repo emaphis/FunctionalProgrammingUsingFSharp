@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Notes02.md" />
+    <None Include="README.md" />
     <None Include="Section_02_01.fsx" />
     <None Include="Section_02_02.md" />
     <None Include="Section_02_03.fsx" />
