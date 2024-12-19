@@ -25,10 +25,10 @@ type Equation = float * float * float
 type Solution = float * float
 ```
 
-A function:
+A function type:
 
 ```fsharp
-solve: Equation -> Solution
+type Solve: Equation -> Solution
 ```
 
 for computing the solutions of the given equation represented as a triple.
@@ -37,7 +37,7 @@ See: `QuadraticEquation.fs` for code of this example.
 
 ## Error handling
 
-`solve` must produce and error message when $b^2 - 4ac < 0$ or $a = 0$. We can signal errors using an `exception` through and `exception declaration`.
+Function `solve` must produce and error message when $b^2 - 4ac < 0$ or $a = 0$. We can signal errors using an `exception` through and `exception declaration`.
 
 ```fsharp
 exception Solver
@@ -48,7 +48,7 @@ The declaration of solve
 
 ```fsharp
 let solve (a, b, c) =
-    if b*b - 4.0 * a * c < 0.0 then raise Solve
+    if b*b - 4.0 * a * c < 0.0 || a = 0.0 then raise Solve
     else
         ((-b + sqrt(b*b - 4.0 * a * c)) / (2.0 * a),
          (-b - sqrt(b*b - 4.0 * a * c)) / (2.0 * a))
@@ -79,5 +79,8 @@ let solve (a, b, c) =
         ((-b + sqrt(b*b - 4.0 * a * c)) / (2.0 * a),
          (-b - sqrt(b*b - 4.0 * a * c)) / (2.0 * a))
 
-// val solve: a: float * b: float * c: float -> float * float         
+// val solve: a: float * b: float * c: float -> float * float
+
+> solve(1.0, 0.0, 1.0);;
+System.Exception: discriminant is negative or a=0.0
 ```

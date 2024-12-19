@@ -18,7 +18,7 @@ Swap has two different type variables $'a$ and $'b$.  Type variables cans stand 
 `fst` and `snd` are two built-in functions that operate on tuples.
 
 $$
-fst : \space 'a \space * \space 'b \space -> \space 'a \quad \text{  and  } \quad snd : \space 'a \space * \space -> \space 'b
+fst : \space 'a \space * \space 'b \space -> \space 'a \quad \text{  and  } \quad snd : \space 'a \space * \space 'b \space -> \space 'b
 $$
 
 they select the first and second components of a tuple, for example:

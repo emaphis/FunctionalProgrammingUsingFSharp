@@ -44,7 +44,7 @@ let sex = john.sex
 
 ## Equality and ordering
 
-Equality of two records with the same type is defined component wise by the equality of each values assigned to the label:
+Equality of two records with the same type is defined component wise by the equality of each values assigned to the label, so the ordering of components is not important.
 
 ```fsharp
 john = { name = "John"; age = 29;
@@ -95,7 +95,8 @@ let {name = x; age = y; sex = s; birthday = (d,m)} = sue
 // val d: int = 24
 ```
 
-Records patterns are used in defining functions on records.
+Records patterns are used in defining functions on records. The declaration
+of a function $age$ where the argument is a record of type $Person$:
 
 ```fsharp
 let age { age = a; name = _; sex = _; birthday = _ } = a

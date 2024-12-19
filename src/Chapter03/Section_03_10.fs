@@ -3,7 +3,7 @@
 module Section_03_10
 
 (*
-    Exceptions terminate the evaluation of functions when
+    Raising an exceptions terminate the evaluation of functions when
     an error condition is detected.
 *)
 

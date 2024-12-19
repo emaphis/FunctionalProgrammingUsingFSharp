@@ -15,6 +15,8 @@ module Chapter03.Section_03_03
         Norm (length):              |(x1, y1)|          =   sqrt(x^2 + y^2)
 *)
 
+// We must give new operators new names so the old operators meanings are over written.
+
 // The prefix operator for vector reversal is declared by (cf. Section 2.9):
 
 /// Vector reversal.

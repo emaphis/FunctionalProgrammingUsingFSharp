@@ -17,16 +17,16 @@ let clr1 = Green
 // Functions on enumerations types may be declared using pattern matching.
 
 let niceColour = function
-    | Red -> true
+    | Red  -> true
     | Blue -> true
-    | _  -> false
+    | _    -> false
 
 // val niceColour: _arg1: Colour -> bool
 
 let nice1 = niceColour Purple
 // val nice1: bool = false
 
-// The days in a mont example from Chapter 1 cam be expressed using an enumeration
+// The days in a month example from Chapter 1 cam be expressed using an enumeration
 
 type Month =
     | January | February | March | April
@@ -40,3 +40,8 @@ let daysOfMonth = function
     | _                                    -> 31
 
 // val daysOfMonth: _arg1: Month -> int
+
+
+// The Boolean type is actually a predefined enumeration type:
+
+// type bool = false | true

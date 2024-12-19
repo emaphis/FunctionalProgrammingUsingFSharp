@@ -1,6 +1,14 @@
 # Chapter 3 - Tuples, records and tagged values
 
-Compound values created with tuples, records and tagged values (discriminated unions).
+Compound values created with tuples, records and tagged values (discriminated unions). Are formed by combining values of other types.
+
+Tuples are used in expressing "functions of several variables."
+
+The components of Records are identified by special identifiers called labels.
+
+Tagged values are used when we group together values of different kinds to form a single set of values.
+
+Tuples, records and tagged values are treated as “first-class citizens” in F#: Meaning that they can be used in any expression.
 
     3 Tuples, records and tagged values 43
     3.1 Tuples 43

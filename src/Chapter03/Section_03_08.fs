@@ -56,6 +56,9 @@ let equal2 = Circle 1.2 = Square 1.2
 
 // Constructors in patterns
 
+// Constructors can be used in patterns. For example, an area function for shapes is declared
+// by:
+
 let area' = function
     | Circle r   -> System.Math.PI * r * r
     | Square a   -> a * a
@@ -66,7 +69,8 @@ let area' = function
 // val area: _arg1: Shape -> float
 
 // Pattern matching treats constructors differently for other identifiers:
-
+    
+    // --------------------------------------------------------
     // A constructor matches itself only in a pattern match
     // while other identifiers match any value
 
@@ -93,6 +97,7 @@ let area2 = area' (Triangle (3.0, 4.0, 5.0))
 let shape4 = Triangle (3.0, 4.0, 7.5)
 // is not a valid shape as 7.5 > 3.0 + 4.0
 
+/// Check for shape invariants 
 let isShape = function
     | Circle r      -> r > 0.0
     | Square a      -> a > 0.0
