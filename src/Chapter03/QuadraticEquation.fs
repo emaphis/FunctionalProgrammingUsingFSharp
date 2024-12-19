@@ -9,7 +9,7 @@ type Equation = float * float * float
 
 // Returning a pair
 
- type Solution = float * float
+type Solution = float * float
 
 
 // The declaration of solve with error handling and locally defined functions and constants.

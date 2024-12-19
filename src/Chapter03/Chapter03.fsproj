@@ -20,6 +20,8 @@
     <Compile Include="Exercise_03_01.fs" />
     <Compile Include="Exercise_03_02.fs" />
     <Compile Include="Exercise_03_03.fs" />
+    <Compile Include="Exercise_03_04.fs" />
+    <Compile Include="Exercise_03_05.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
