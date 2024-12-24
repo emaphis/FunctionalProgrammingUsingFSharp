@@ -10,6 +10,7 @@
     <Content Include="Section_04_01.md" />
     <Content Include="Section_04_02.md" />
     <Content Include="Section_04_03.md" />
+    <Content Include="Section_04_04.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

@@ -7,10 +7,10 @@ This chapter introduces the List consept including: list values, patterns and ba
 
 At the end of the chapter  model-based approach to functional programming is introduced
 
- 4 Lists
- 4.1 The concept of a list
- 4.2 Construction and decomposition of lists
- 4.3 Typical recursions over lists
- 4.4 Polymorphism
- 4.5 The value restrictions on polymorphic expressions
- 4.6 Examples.A model-based approach
+    4 Lists
+    4.1 The concept of a list
+    4.2 Construction and decomposition of lists
+    4.3 Typical recursions over lists
+    4.4 Polymorphism
+    4.5 The value restrictions on polymorphic expressions
+    4.6 Examples.A model-based approach

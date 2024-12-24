@@ -1,6 +1,6 @@
 # 4.3 Typical recursions over lists
 
-Arch-typical recursive functions declarations on lists.
+Arch-typical recursive function declarations on lists.
 
 ## Function declarations with two clauses
 
@@ -23,7 +23,7 @@ let rec suml = function
 val suml: _arg1: int list -> int
 ```
 
-In evaluating the function for $suml xs$, F# scans the clauses and selects the first clause where the argument matches the pattern.
+In evaluating the function for $suml \space xs$, F# scans the clauses and selects the first clause where the argument matches the pattern.
 
 $$
 \begin{align*}
@@ -50,7 +50,7 @@ We have three different forms of arguments.
 
 2. list with one element: $altsum \space [x_0] \space = \space x_0$
 
-3. list with two oar move elements:
+3. list with two or more elements:
 
     $$altsum \space [x_0;x_1;x_2;\dots;x_{n-1}] \space = \space x_0 - x_1 + altsum \space [x_2; \dots;x_{n-1}]$$
 
@@ -81,7 +81,6 @@ $$
 
 Using the pattern $x0::x1::xs$ we get the declaration:
 
-```fsharp
 
 ```fsharp 
 let rec succPairs = function
@@ -118,7 +117,7 @@ $$
 
 ## Pattern matching on result of recursive call
 
-Use pattern matching to split the result of a recursive call into components.  The function $sumProd$ computes the pair consisting of the sum and the production of the elements in a list of integers.
+Use pattern matching to split the result of a recursive call into components.  The function $sumProd$ computes the pair consisting of the sum and the product of the elements in a list of integers.
 
 $$
 \begin{align*}
@@ -154,7 +153,7 @@ let rec sumProd = function
 val it: int * int = (7, 10)
 ```
 
-Another example is the $unzip$ function tha maps a list of pairs to a pair of lists:
+Another example is the $unzip$ function that maps a list of pairs to a pair of lists:
 
 $$
 unzip \space ([(x_0, Y_0); (x_1,y_1); \dots; (x_{n-e}, y_{n-1}) \space] \newline
