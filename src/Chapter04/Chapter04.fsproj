@@ -9,8 +9,10 @@
     <Content Include="README.md" />
     <Content Include="Section_04_01.md" />
     <Content Include="Section_04_02.md" />
+    <Compile Include="Chapter_04_1_to_2_Examples.fs" />
     <Content Include="Section_04_03.md" />
     <Content Include="Section_04_04.md" />
+    <Content Include="Section_04_05.md" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
