@@ -16,7 +16,7 @@ $$
 x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} \quad \text{ and } \quad x_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a}
 $$
 
-Note that $x_1 = x_2$ if $b^2 - 4ac = 0$.
+Note that $x_1 = x_2$  if  $b^2 - 4ac = 0$.
 
 We will represent the quadratic equation by the triple $(a,b,c)$ of real numbers and the solutions $x_1$ and $x_2$ by the pair $(x_1, x_2)$ of real numbers. In F#:
 

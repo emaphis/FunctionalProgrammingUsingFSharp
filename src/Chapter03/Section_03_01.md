@@ -1,10 +1,13 @@
 # 3.1 Tuples
 
-An ordered collection of $n$ values $(v_1,v_2, ... , v_n)$, where $n > 1$, is called an $n-tuple$.
+An ordered collection of $n$ values $(v_1,v_2, ... , v_n)$, where $n = 0\space or \space n > 1$, is called an $n-tuple$.
 
 Examples of $n-tuples$ are:
 
 ```fsharp
+> ();;
+//val it: unit = ()
+
 (10, true)
 // > val it: int * bool = (10, true)
 
@@ -12,11 +15,11 @@ Examples of $n-tuples$ are:
 // > val it: (string * int) * int = (("abc", 1), -3)
 ```
 
+The symbol $()$ is the only ()-tuple and has the type `unit`.
+
 A $2-tuple$ is a called a pair. The second example is a pair contains another pair.
 
 A 3-tuple is called a triple and a 4-tuple is called a quadruple. There ae no 1-tuples or 0-tuples. An expression like $(true)$ is not a tuple but just the expression $true$ enclosed by parentheses.
-
-The symbol $()$ is the only value of `unit`.
 
 Tuples can also be considered graphs with $( v_1, v_2, ... , v_n )$ being an `n` graph.
 
@@ -47,6 +50,9 @@ let tp1 = ((1<2, "abc"), 1, 1-4)
 let tp2 = (2>1, "abc", 3-2,-3)
 > val tp2 : bool * string * int * int = (true, "abc", 1,-3)
 ```
+
+The tuple type $t_1*t_2*\dots*t_n$ corresponds to the `Cartesisan Product` $A \space = \space A_1 \times A_2 \times \dots \times A_n$ 
+And element of $a$ of the set $A$ is a tuple $a \space = \space (a_1,a_2, \dots, a_n)$
 
 ## Tuple are individual values
 
@@ -125,7 +131,7 @@ compare ("abcd", (true, 1)) ("abcd", (false, 2));;
 
 ## Tuple patterns
 
-Patterns can be used on the left hand side of a `let` declaration to destructure tuples.
+Patterns can be used on the left hand side of a `let` declaration to destructure tuples or extract components.
 
 ```fsharp
 let (x,n) = (3,2);;
@@ -145,7 +151,6 @@ But this fails:
 ```fsharp
 let (x,0) = (3,2);;
 ```
-
 Since `0` doesn't match `2`
 
 Wildcard patterns can be used in matching expressions

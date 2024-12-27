@@ -35,10 +35,16 @@ Records create local environments. It contains a local binding from label to val
 Individual components can be accessed with dot `.` notation.
 
 ```fsharp
-let bday = john.birthday
+> let name = john.name;;
+//val name: string = "John"
+
+> let age = john.age;;
+//val age: int = 29
+
+> let bday = john.birthday;;
 // val bday: int * int = (2, 11)
 
-let sex = john.sex
+> let sex = john.sex;;
 // val sex: string = "M"
 ```
 
@@ -71,6 +77,33 @@ v1'>v2'
 ```
 
 `v1` is smaller than `v2` because the label `a` occurs first in the record type `T1` and `v1.a=1` is smaller than `v2.a=2` while `v1'` is larger than `v2` because the label `b` occurs first in the record type `T2` and it's value is larger.
+
+## Anonymous records.
+
+`Anonymous records` can be created with the $[| \dots |]$ notation
+
+```fsharp
+> let a1 = {| Name = "Peter"; Age = 20 |};;
+//val a1: {| Age: int; Name: string |} = { Age = 20
+//                                         Name = "Peter" }
+```
+Anonymous record type contains a set of labels with associated types
+
+A component in a record is usually callee a `record field` and is identified by it's `label`, using '.' notation.
+
+```fsharp
+> a1.Name;;
+val it: string = "Peter"
+
+> a1.Age;;
+val it: int = 20
+```
+Equality is defined the same way as named records.
+
+```fsharp
+> {| Name = "Peter"; Age = 20 |}  =  {| Name = "Peter"; Age = 20 |};;
+//val it: bool = true
+```
 
 ## Record patterns
 
