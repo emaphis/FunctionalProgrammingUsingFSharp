@@ -1,10 +1,10 @@
-module Chapter03.Section_03_07_Tests
+module Chapter03.Section_03_07_Tests_B
 
 open System
 open Xunit
 open Swensen.Unquote
 
-open Chapter03.Section_03_07
+open Chapter03.Section_03_07_B
 
 [<Fact>]
 let ``Test Example 3.7: Rational number canc`` () =

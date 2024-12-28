@@ -18,7 +18,7 @@ Three activities:
 
 These three steps wil be iterated. Problems in the Programming and Testing stages will find weaknesses in the Analysis stage.
 
-These activates will result in the `technical documentation` consisting of the following:
+These activities will result in the `technical documentation` consisting of the following:
 
 1. `Interface definition` The users view of the program is presented in the interface. The interface contains the declaration of the types of data and a specification of each function.
 2. `Program` A declaration of each entity in the interface definition.
@@ -26,7 +26,7 @@ These activates will result in the `technical documentation` consisting of the f
 
 ## Problem statement: rational numbers.
 
-A number $q$ is `rational` if $q \space = \frac a b$, where $a$ and $b$ are integers and $b \space \neq 0$, The problem is to construct a program to perform the usual arithment operations on the rational numbers:
+A number $q$ is `rational` if $q \space = \frac a b$, where $a$ and $b$ are integers and $b \space \neq 0$, The problem is to construct a program to perform the usual arithmetic operations on the rational numbers:
 addition, subtraction, multiplication, division and equality. It should also provide a method to produce textual output. 
 
 ## Solution 1
@@ -59,14 +59,14 @@ Give the data type `ratiaonal number` a name $qnum$
 
 Use identifiers +., -., /., and =. as the names of the operators.
 
-Division (//) is a partial function so it will need a exception $QDiv$ to represent numbers outside of it's domain.
+Division (//) is a partial function so it will need an exception $QDiv$ to represent numbers outside of its domain.
 
 $mkQ$ constructs the rational number from a pair of floats $(a,b)$
 
-$toString$ will convert a rational number to it's textual representation.
+$toString$ will convert a rational number to its textual representation.
 
 
-| Specfication              | Comment                            |
+| Specification             | Comment                            |
 |---------------------------|------------------------------------|
 | type qnum = int * int     | Rational numbers                   |
 | exception QDiv            | Division by zero                   |
@@ -82,10 +82,10 @@ This is a list of specifications. Each is programming task that must be performe
 
 ### Programming
 
-In this solution we will consider the pait $(a,b)$ to represent the rational number $a/b$. The pair $(a,b)$ has the type $int * int$.
+In this solution we will consider the pair $(a,b)$ to represent the rational number $a/b$. The pair $(a,b)$ has the type $int * int$.
 
 ```fsharp
-type qnum = int * int  // (a,b) where b <> 0
+type Qnum = int * int  // (a,b) where b <> 0
 ```
 
 The function $mkQ$ forms a rational humber from a pair of integers. It is a partial function where it is undefined for $b \neq 0$
@@ -99,26 +99,62 @@ let mkQ pair : Qnum =
  | a, b -> a, b ;;
  
 //val mkQ: 'a * int -> 'a * int
+
+let rec gcd (m, n) =
+    if m = 0 then n
+    else gcd (n % m, m);;
 ```
 Now the operators:
 
 ```fsharp
-/// Addition
+// Addition
 let (.+.) (a, b) (c, d) = (a*d + b*c, b*d)
 
-/// Subtraction
+// Subtraction
 let (.-.) (a, b) (c, d) = (a*d - b*c, b*d)
 
-/// Multiplication
+// Multiplication
 let (.*.) (a, b) (c, d) = (a*c, b*d)
 
-/// Division
+// Division
 let (./.) (a, b) (c, d) = (a,b) .*. mkQ(d,c)
 
-/// Equality
-let (.=.) (a,b) (c,d) = (a,b) = (c,d)
+// Equality
+let (.=.) (a, b) (c, d) = (a, b) = (c, d)
 
-let toString(p:int,q:int) = (string p) + "/" + (string q)
+let toString(p, q) =
+    let sign = if p*q < 0 then "-" else ""
+    let ap = abs p
+    let aq = abs q
+    let d = gcd(ap, aq)
+    sign + (ap % d).ToString() +
+         "/" + (aq % d).ToString()
 ```
+
+See the program in Section_03_07_A.fs
+
+### Testing
+
+A test should exercise all parts (or paths) of a program. Each case in a match expression should have a test.
+Each brand in an &if ... then ... else ...$ should have a test case.
+
+Test cases:
+
+ | Case | Function | Branch   | Remark          |
+ |------|----------|----------|-----------------|
+ | 1    | mkQ      | (_, 0)   | Denominator = 0 |
+ | 2    | mkQ      | pr       |                 |
+ | 3    | .+.      |          |                 |
+ | 4    | .-.      |          |                 |
+ | 5    | .*.      |          |                 |
+ | 6    | ./.      |          |                 |
+ | 7    | .=.      |          |                 |
+ | 10   | gcd      | (0, n)   | Base case       |
+ | 11   | gcd      | (m, n)   | Recursive call  |
+ | 8    | toString | p*q >= 0 | Negative sign   |
+ | 9    | toString | p*q < 0  |                 |
+
+See test\Chapter03\Section_03_07_a.ts
+
 
 

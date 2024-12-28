@@ -1,6 +1,6 @@
 ﻿// 3.7 Example: Rational numbers. Invariants
 
-module Chapter03.Section_03_07
+module Chapter03.Section_03_07_B
 
 // A rational number `q` is a fraction `q=a/b` where 'a' and 'b' are integers with `b <> 01.
     
