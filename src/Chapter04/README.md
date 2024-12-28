@@ -1,9 +1,8 @@
 # Chapter 4 - Lists
 
-Lists are at the core of functional programming. A large number of applications can be mod
-elled and implemented using lists.
+Lists are at the core of functional programming. A large number of applications can be modelled and implemented using lists.
 
-This chapter introduces the List consept including: list values, patterns and basic operations, and we study a collection of recursion schemas over lists.
+This chapter introduces the List concept including: list values, patterns and basic operations, and we study a collection of recursion schemas over lists.
 
 At the end of the chapter  model-based approach to functional programming is introduced
 

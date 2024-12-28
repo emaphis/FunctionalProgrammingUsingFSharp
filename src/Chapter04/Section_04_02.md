@@ -20,8 +20,8 @@ val z: int list = [2; 3; 4; 5]
 ```
 
 ## List patterns
-
-The `cons` operator can also be used in `list patterns`.  List patterns can also be used to define function on lists.
+While the cons operator can be used to construct a list from a `head` and a `tail` list,
+the `cons` operator can also be used in `list patterns` and pattern matching.  List patterns can also be used to define function on lists.
 
 The list pattern `[]` is an empty list while non-empty lists are constructed using the `cons` operator $x::xs$ matches a non-empty list.
 

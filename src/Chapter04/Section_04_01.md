@@ -49,8 +49,7 @@ List of lists:
 > [[2;3];[3];[2;3;3]];;
 val it: int list list = [[2; 3]; [3]; [2; 3; 3]]
 ```
-
-lists of pairs containing lists:
+Lists can be components of other types, pairs containing lists:
 
 ```fsharp
 > ("bce", [2;3;5]);;
@@ -72,11 +71,19 @@ All elements of a list must have the same type:
 stdin(2,6): error FS0001: All elements of a list must be implicitly convertible to the type of the first element, which here is 'string'. This element has type 'int'.
 ```
 
+## Graph for a list
+
+A non-empty list $[x_1;x_2;\dots;x_n]$ with $n\geq 0$ consists of two parts: the first element $x_1$ called the `heat` of the list and the remaining
+part $[x_2; \dots; x_n]$ is called the tail of the list. The head of $[2;3;4]$ is $2$ and the tail is $[3;4]$.
+The head of $[2]$ is $2$ while the tail is $[\space]$.
+
+The list in F# is essentially a graph. 
+
 ## Equality of lists.
 
-Two lists $[x_0; x_1; ...; x_{m-1}]$ and $[y_0;y_1;...; y_{n-1}]$ (of the same type) are `equal`  when $m \space = \space n$ and $x_i = y_i$ and that $0 \leq i \lt m$. The order has to be the same
+Two lists $[x_0; x_1; ...; x_{m-1}]$ and $[y_0;y_1;...; y_{n-1}]$ (of the same type) are `equal` when $m \space = \space n$ and $x_i = y_i$ and that $0 \leq i \lt m$. The order has to be the same
 
-The equality operator `=` of F# can be used to test equality:
+The equality operator `=` of F# can be used to test equality of two lists if the elements of the list are the same type:
 
 ```fsharp
 > [2;3;2] = [2;3];;
