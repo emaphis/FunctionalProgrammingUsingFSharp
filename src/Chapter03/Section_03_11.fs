@@ -4,7 +4,7 @@ module Section_03_11
 
 (*
     A function 'f' is a 'partial' function a set 'A' if the domain of 'f' is a
-    proper subset of 'A.'  So the factorial function is a partial function
+    proper subset of 'A.'  Example: the factorial function is a partial function
     of the set of integers because it is undefined on negative integers.
 
     F# offers three ways of handling arguments where the function is undefined:
@@ -30,22 +30,34 @@ module Section_03_11
 let res1 = Some false
 // val res1 bool option = Some false
 
-// the library function 'get' removes the 'Some' from the failure.
+let res2 = Some [1; 2; 3]
+//val res2: int list option = Some [1; 2; 3]
+
+let res3 = Some []
+//val res3: 'a list option
+
+// The value `None` is a polymorphic value of 'a option.
+let non1 = None
+//val non1: 'a option
+
+
+// the library function 'get' removes the 'Some' ie: `Option.get(Some n) = n from results.
 
 let fun1 = Option.get
 // val fun1: ('a option -> 'a)
 
-let res2: bool = Option.get(res1)
-// val res2: bool = false
+let res4: bool = Option.get(res1)
+// val res4: bool = false
 
-let res3 = Option.get(Some (1, "a"))
-// val res3: int * string = (1, "a")
+let res5 = Option.get(Some (1, "a"))
+// val res5: int * string = (1, "a")
 
-let res4 = Option.get(Some 1)
-// val res4: int = 1
+let res6 = Option.get(Some 1)
+// val res6: int = 1
 
-//let res5 = Option.get None + 1
+//let res7 = Option.get None + 1
 // System.ArgumentException: The option value was None
+
 
 // Redefined 'fact' function
 
@@ -61,11 +73,11 @@ let optFact n =
 
 // now 'optFact' always returns a value given an integer
 
-let res6 = optFact 5
-// val res6: int option = Some 120
+let res8 = optFact 5
+// val res8: int option = Some 120
 
-let res7 = optFact -2
-// val res7: int option = None
+let res9 = optFact -2
+// val res9: int option = None
 
 
 // optFact assume the existence of 'fact' but 'optFact' can fe defined
@@ -79,8 +91,8 @@ let rec optFact' = function
 // val optFact': _arg1: int -> int option
 
 
-let res8 = optFact' 5
-// val res8: int option = Some 120
+let res10 = optFact' 5
+// val res10: int option = Some 120
 
-let res9 = optFact' -2
-// val res9: int option = None
+let res11 = optFact' -2
+// val res11: int option = None

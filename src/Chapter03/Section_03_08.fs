@@ -106,9 +106,12 @@ let isShape = function
         && a < b + c && b < a + c && c < a + b
 
 
+/// If a shape fails its invariants
+exception BadShape
+
 let area x =
     if not (isShape x)
-    then failwith "not a legal shape"
+    then raise BadShape
     else
         match x with
         | Circle r   -> System.Math.PI * r * r
@@ -117,9 +120,11 @@ let area x =
             let s = (a + b + c) / 2.0
             sqrt(s * (s - a) * (s - b) * (s - c))
 
+// The new $area$ function computes the area of legal values of type shape and terminates
+// the evaluation with the exception BadShape of illegal values.
 
 let area3 = area (Triangle(3.0,4.0,5.0))
 // val area3: float = 6.0
 
 let area4 = area (Triangle(3.0,4.0,7.5))
-// System.Exception: not a legal shape
+// FSI_0063+BadShape: BadShape
