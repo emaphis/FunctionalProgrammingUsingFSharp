@@ -31,7 +31,7 @@ let ``Test Example 3.7, operators``() =
 
 
 [<Fact>]
-let ``Text Exampl 3.7a gcd`` () =
+let ``Text Example 3.7a gcd`` () =
     test <@ gcd(0, 5) = 5 @>
     test <@ gcd(3,5) = 1 @>
     test <@ gcd(3, 15) = 3 @>

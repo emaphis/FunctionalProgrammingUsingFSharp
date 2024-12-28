@@ -156,5 +156,57 @@ Test cases:
 
 See test\Chapter03\Section_03_07_a.ts
 
+## Solution 2
+
+In his version we use a representation of $(a, b)$ where $b \gt 0$ and where the fraction $\frac a b$ is irreducible, that is where $gcd(a,b) = 1$.
+Any ration number has a unique `normal form` of this kind.
+
+```fsharp
+type QNum = int * int  // (a, b) where b > 0 and gce(a, b) = 1
+```
 
 
+It is convenient to declare a function `canc` which cancel common divisors and reduces any fraction with non-zero denominator to the normal form. 
+
+```fsharp
+/// Cancels common divisors and reduces the fraction p/q to it's normal form
+let canc(p, q) =
+    let sign = if p*q < 0 then -1 else 1
+    let ap = abs p
+    let aq = abs q
+    let d = gcd(ap, aq)
+    sign * (ap / d), aq / d
+
+//val canc: p: int * q: int -> int * int
+```
+In other functions `canc` can be applied to ensure that the resulting value satisfy the invariant.
+
+The resulting declaration of `toString` is simpler because the `QNums` are assumed to satisfy the invariant.
+
+- No cancellation is needed.
+- The integer $p$ and the rational number $\frac p q$ has the same sign (as $p \gt 0$)
+
+### Programming
+
+See the program in Section_03_07_B.fs
+
+### Testing
+
+Test cases:
+
+| Case | Function | Branch   | Remark              |
+|------|----------|----------|---------------------|
+| 1    | canc     | p*q >= 0 | Non-negative number |
+| 2    | canc     | p*q < 0  | Nagative number     |
+| 3    | gcd      | (0, n)   | Base case           |
+| 4    | gcd      | (m, n)   | Recursive call      |
+| 5    | mkQ      | (_, 0)   | Denominator = 0     |
+| 6    | mkQ      | pr       | Normal number       |
+| 7    | .+.      |          |                     |
+| 8    | .-.      |          |                     |
+| 9    | .*.      |          |                     |
+| 10   | ./.      |          |                     |
+| 11   | .=.      |          |                     |
+| 12   | toString |          |                     |
+
+See test\Chapter03\Section_03_07_a.ts

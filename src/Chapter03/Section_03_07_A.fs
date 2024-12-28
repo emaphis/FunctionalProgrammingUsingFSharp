@@ -48,7 +48,7 @@ let toString(p, q) =
 //val toString: p: int * q: int -> string
 
 // Tests:
-
+(*
 //mkQ(3, 0)
 // val toString: p: int * q: int -> string
 
@@ -87,3 +87,4 @@ let str1 = toString q4
 
 let str2 = toString q5
 //val str2: string = "-1/2"
+*)
