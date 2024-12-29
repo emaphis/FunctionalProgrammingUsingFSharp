@@ -1,6 +1,6 @@
 # 4.2 Construction and decomposition of lists
 
-## The $cons$ operator
+## The $cons$ `::` operator
 
 The infix operator $::$ called "cons" builds lists from its head and its tail and adds an element to the front of a list.
 
@@ -19,7 +19,10 @@ The operator `associates` to the right so $x::x_1::xs$ means $x_0::(x_1::xs)$ wh
 val z: int list = [2; 3; 4; 5]
 ```
 
+Functions generating lists may be declared by the use of $::$ and $[\space]$ with the [ ] used in the base case and :: used in the recursive case.
+
 ## List patterns
+
 While the cons operator can be used to construct a list from a `head` and a `tail` list,
 the `cons` operator can also be used in `list patterns` and pattern matching.  List patterns can also be used to define function on lists.
 
@@ -35,7 +38,7 @@ val xs: int list = [2; 3]
 val x: int = 1
 ```
 
-will bind $x$ to the value $1$ and $xs$ to the value $[2;3]$ by matching the value $[1;2;3]$ to the pattern $x::xs$.
+will simultaneously bind $x$ to the value $1$ and $xs$ to the value $[2;3]$ by matching the value $[1;2;3]$ to the pattern $x::xs$.
 
 The execution of the declarations:
 
@@ -47,7 +50,7 @@ val x: int = 1
 
 Will simultaneously bind $x$ to $1$ and $xs$ to $[2;3]$
 
-A list pattern to match a fixe number of elements, i.e. a three element list is written $x0::x1::x2::[]$ of shorter $[x0;x1;x3]$.
+A list pattern to match a fixed number of elements, i.e. a three element list is written $x0::x1::x2::[\space]$ of shorter $[x0;x1;x3]$.
 
 ```fsharp
 >  let [x0;x1;x2] = [(1,true); (2,false); (3, false)];;

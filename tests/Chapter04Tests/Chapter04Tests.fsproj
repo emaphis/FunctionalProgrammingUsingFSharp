@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Section_04_03_Example_Tests.fs" />
+    <Compile Include="Examples_04_Tests.fs" />
   </ItemGroup>
 
   <ItemGroup>

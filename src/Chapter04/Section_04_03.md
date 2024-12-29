@@ -38,7 +38,7 @@ $$
 
 ## Function declarations with several clauses
 
-A function declaration can have more than one clause
+A function declaration can have more any number $(\geq 1)$ clauses
 
 Consider the `altsum` function on an integer list:
 
@@ -81,8 +81,7 @@ $$
 
 Using the pattern $x0::x1::xs$ we get the declaration:
 
-
-```fsharp 
+```fsharp
 let rec succPairs = function
     | x0::x1::xs -> (x0, x1) :: succPairs(x1::xs)
     | _ -> [];;

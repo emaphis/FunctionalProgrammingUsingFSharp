@@ -14,7 +14,8 @@
     <Compile Include="Section_04_03_Examples.fs" />
     <Content Include="Section_04_04.md" />
     <Content Include="Section_04_05.md" />
-    <Compile Include="Program.fs" />
+    <Content Include="Examples_04.md" />
+    <Compile Include="Examples_04.fs" />
   </ItemGroup>
 
 </Project>

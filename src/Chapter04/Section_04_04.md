@@ -29,7 +29,6 @@ val it: bool = false
 
 ## Append and reverse. Two built-in functions
 
-
 The infix operator $@$ called `append` joins two lists of the same type:
 
 $$
@@ -59,7 +58,7 @@ let rec (@) xs ys =
   match xs with
   | []    -> ys
   | x::xs' -> x::(xs' @ ys);;
-//al (@) : xs: 'a list -> ys: 'a list -> 'a list
+//val (@) : xs: 'a list -> ys: 'a list -> 'a list
 
 > [1;2] @ [3;4];;
 val it: int list = [1; 2; 3; 4]
@@ -79,6 +78,9 @@ $$
 
 The evaluation of $xs \space @ \space ys$ comprises of $n+1$ pattern matches plus $m$ cons'es where $m$ is the length of $xs$.
 
+The type of $@$ is $ 'a list -> 'a list -> 'a list$ where $'a$ is a `type variable`.  This means that for any type @t@ and two lists
+$xs, ys$ of the type $t \space list$ the function application $xs \space @ \space ys$ is well-defined and gives the result of type $t \space list$.
+
 Polymorphism is very convenient because one does not need to write special functions for every type:
 
 ```fsharp
@@ -88,6 +90,8 @@ val it: int list = [1; 2; 3; 4]
 > [[1];[2;3]] @ [[4]];;
 val it: int list list = [[1]; [2; 3]; [4]]
 ```
+
+The `cons` operator $::$ has the type $'a * 'a \space list -> 'a \space list$ so is a polymorphic function
 
 The operators $::$ and $@$ have the same precedence and both associate to the $right$. So $[1] @2 :: [3]$ for example is interpreted as $[1]@(2::[3])$, while $1::[2]@[3]$ is interpreted as $1::([2] @ [3])$
 
