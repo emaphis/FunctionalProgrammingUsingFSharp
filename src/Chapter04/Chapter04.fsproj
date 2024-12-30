@@ -16,6 +16,10 @@
     <Content Include="Section_04_05.md" />
     <Content Include="Examples_04.md" />
     <Compile Include="Examples_04.fs" />
+    <None Include="Section_04_06.md" />
+    <Compile Include="Exercise_04_01.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>

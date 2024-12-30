@@ -64,11 +64,19 @@ let list1 = titles("al", cdreg)
 /// Extracting an artist is a partial function
 exception CdEx
 
+
+/// Is a member of a list
+let rec isMember x list =
+    match x, list with
+    | _, []    -> false
+    | x, y::ys -> x = y || isMember x ys
+
+
 /// Extracting the artist of a given song in a register
 let rec findArtist = function
     | (_, []: CDRegister)  -> raise CdEx
     | s, { Artist=artist; Title=_; Company=_; Year=_; Songs=songs } :: cdreg ->
-        if (List.contains s songs) then artist
+        if (isMember s songs) then artist
         else findArtist(s, cdreg)
 
 // val findArtist: string * CDRegister -> string
