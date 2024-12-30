@@ -20,7 +20,7 @@ The construction of the dialog programs is addressed later.
 ### Problem analysis: cash register.
 
 Our main goal is that the main concepts of the problem are found in the components of the program we will construct.
-To achieve this we name the important concept of the problem and we associate types with those names.
+To achieve this we name the important concepts of the problem, and we associate types with those names.
 
 Article code and article name are central concepts in the formulation. 
 
@@ -32,12 +32,11 @@ type articleName = string;;
 We chose to represent these with strings
 
 The `register` associates the `article name` and `article price` with each `article code`, ane we model a `register by a list of pairs.
-
 Each pair has the form
 
 $\qquad (ac, (aname, aprice))$
 
-where $ad$ is an article code, $aname$ is the article name and $aprice$ is the article price.  We chose (non-negative) integers to represent prices.
+where $ad$ is an article code, $aname$ is the article name and $aprice$ is the article price.  We chose (non-negative) integers to represent prices in the smallest currency unit.
 
 ```fsharp
 type price = int;;  // pr where pr >= 0
@@ -52,13 +51,13 @@ type register = (articleCode * (articleName * price)) list
 The following is an example of a register:
 
 ```fsharp
-let reg1 =
+let register : register =
     [ ("a1", ("cheese", 25));
       ("a2", ("herring", 4));
       ("a3", ("soft drink", 5)) ]
 ```
 
-A `purchase` comprises a `sequence of items` modeled a a list of items  where each item is a pair:
+A `purchase` comprises a `sequence of items` modeled a list of items  where each item is a pair:
 
 $\qquad (np,ac)$
 
@@ -164,8 +163,8 @@ let rec makeBill = function
 | 1    | findArticle | -                       | Empty register     |
 | 2    | findArticle | (ac, (ac', adesc)::reg) | Non-empty reg      |
 |      |             | ac=ac'                  | found              |
-| 3    | findArticle | (ac, (ac',adesc)::reg)  | Non-emty reg       |
-|      |             | not ac=ac'              | not founc          |
+| 3    | findArticle | (ac, (ac',adesc)::reg)  | Non-empty reg      |
+|      |             | not ac=ac'              | not found          |
 | 4    | makeBill    | ([], _)                 | Empty purchase     |
 | 5    | makeBill    | ((np,ac)::pur,reg       | Non-empty purchase |
 
