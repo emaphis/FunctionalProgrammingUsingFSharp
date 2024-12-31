@@ -2,7 +2,7 @@
 
 Problem solving II
 
-## Cash Register.
+## A. Cash Register.
 
 ### Problem statement
 
@@ -101,7 +101,7 @@ The following is an example of a bil:
 let bill1 = ([ (3, "herring", 12); (1, "cheese", 25) ], 37)
 ```
 
-the function $makeBill$ computes a bill given a prerchase and a register, it has the type:
+the function $makeBill$ computes a bill given a purchase and a register, it has the type:
 
 ```fsharp
 val makeBill (purchase * register) -> bill
@@ -168,9 +168,185 @@ let rec makeBill = function
 | 4    | makeBill    | ([], _)                 | Empty purchase     |
 | 5    | makeBill    | ((np,ac)::pur,reg       | Non-empty purchase |
 
+## B. Map colouring
+
+When a `map` is `coloured` the `colouts` should be chosen to all the `neighbouring countries` get different colours.
+The problem is to construct a program computing such `colouring`.
+This problem will illustrate `functional decomposition` where the program is constructed by a collection of simple, but well-understood functions that can be composed to solve the problem.
+
+A `country` is represented by its name as a $string$, whereas the `map` is represented `neighbour relation`
+that is represented as a `list of pairs of countries` which have a common border.
+
+```fsharp
+type Country = string
+type Border  = Country * Country
+type Map     = Border list
+```
+
+The F# list of pairs:
+
+```fsharp
+let exMap : Map = [("a", "b"); ("c", "d"); ("d", "a")]
+```
+
+defines a `map` comprising four `countries` $a$, $b$, $c$, and $d$,
+where the country $a$ has the neighbouring countries $b$ and $d$,
+The country $b$ has the neighbouring country $a$ and so on.
+
+A `colour` on a map is represented by a `list of countries` having the same `colour`,
+and a `colouring` is described as a list of mutually disjoint `colours`.
+The above countries may be coloured by the `colouring`:
+
+```fsharp
+type Colour = Country list
+type Colouring = Colour list
+```
+
+The `counntries` of the example map may be coloured by the `colouring`:
+
+$\qquad [["a"; \space "c"]; \space ["b"; \space "d"]]$
+
+where this `colouring` has two colours $["a";"c"]$ and $["b"; "d"]$,
+where countries $a$ and $c$ get one `colour` and countries $b$ and $d$ get another `colour`.
+
+A Data model for map colouring problem:
+
+| Meta symbol: Type | Definition            | Sample value            | 
+|-------------------|-----------------------|-------------------------|
+| c: Country        | string                | "a","b","c","d"         |
+| m: Map            | (Country*Country list | [(a","b");              |
+|                   |                       | ..("c","d"); ("d","a")] |
+| col: Colour       | Country list          | ["a"; "c"]              |
+| cols: Colouring   | Colour list           | [["a";"c"];["b";"d"]]   |
+
+Our task is to declare a function:
+
+$\qquad colMap:\space Map \space -> \space Colouring$
+
+that can generate a `colouring` of a given `map`
+We will express the function as a composition of simpler functions.
+
+We will start with an empty `colouring` Then we will extend the actual colouring by adding one country at a time.
+
+```fsharp
+given exMap: [("a","b"); ("c","d"); ("d","a")]
+"a" -> []                -> [["a"]]
+"b" -> [["a"]]           -> [["a"];["b"]]
+"c" -> [["a"];["b"]]     -> [["a";"c"];["b"]]
+"d" -> [["a";"c"];["b"]] -> [["a";"c"];["b";"d"]]
+```
+We illustrate the operation on the `map` of four countries "a", "b", "c", and "d" with these steps:
+
+1. The colouring containing no colours is the empty list.
+2. The colour $["a"]$ cannot be `extended` by "b" because the countries "a" and "b" share borders. Hence, the `colouring` should be extended with $["b"]$
+3. The colour $["a"]$ can be `extended` by "c" because "a" and "c" are not neighbours.
+4. The colour $["a";"c"]$ can not be `extended` by "d" while the colour $["b"]$ can be extended by "d".
+
+The algorithmic concepts are shown as:
+
+* Test whether the `colour` can be extended by a `country` for a given `map`.
+* Test whether the two `countries` are `neighbors` in a given `map`.
+* Extend a `colouring` be a `country` for a given map
+
+The types and meanings of the functions are:
+
+```fsharp
+ areNb: Map -> Country -> bool
+```
+
+which decides whether two countries are neighbors
+
+```fsharp
+ canBeExtBy: Map -> Colour -> bool
+```
+which decides whether a colour can be extended by a country
+
+```fsharp
+extColouring: Map -> Colouring -> Country -> Colouring
+```
+which extends a colouring by an extra country
 
 
+```fsharp
+countries: Map -> Country list
+```
+produces a list of countries in a map
 
+```fsharp
+colCntrs: Map -> Country list -> Colouring
+```
 
+Builds a colouring from a list of countries
 
+Now to the function declarations:
 
+* A predicate which determines whether two countries are neighbours in a given map.
+
+```fsharp
+let rec areNB m c1 c2 =
+    isMember (c1, c2) m || isMember (c2, c1) m
+```
+
+* A predicate to determine for a given map whether a colour can be ex￾tended by a country
+
+```fsharp
+let rec canBeExtendBy m col c =
+    match col with
+    | []         -> true
+    | c' :: col' -> not (areNB m c' c) && canBeExtendBy m col' c
+
+canBeExtBy exMap ["c"] "a";;
+val it : bool = true
+
+canBeExtBy exMap ["a"; "c"] "b";;
+val it : bool = false
+```
+
+* Our solution inserts the countries of a map one after the other into a colouring,
+starting with the empty one. So we declare a function `extColoring` that for a given map extends a partial colouring by country
+
+```fsharp
+let rec extColouring m cols c =
+    match cols with
+    | []           -> [[c]]
+    | col :: cols' ->
+        if canBeExtendBy m col c
+        then (c :: col) :: cols'
+        else col :: extColouring m cols' c
+
+extColouring exMap [] "a";;
+val it : string list list = [["a"]]
+
+extColouring exMap [["c"]] "a";;
+val it : string list list = [["a"; "c"]]
+
+extColouring exMap [["b"]] "a";;
+val it : string list list = [["b"]; ["a"]]
+```
+
+* To complete our task we declare a function to extract a list of countries without
+repeated elements from a map and a function to colour a list of countries given a map.
+
+```fsharp
+// Only add element if it's not already present.
+let addElem x ys =
+    if isMember x ys then ys else x::ys
+
+// Add a pair of countries (border?) to a list if they aren't already their
+let rec countries = function
+    | []        -> []
+    | (c1, c2) :: m -> addElem c1 (addElem c2 (countries m))
+
+/// Colour a list of countries given a map
+let rec colCntrs m = function
+    | []   -> []
+    | c::cs -> extColouring m (colCntrs m cs) c
+```
+
+// The function
+
+```fsharp
+/// Produces a colouring for a given map
+let colMap map =
+    colCntrs map (countries map)
+```
