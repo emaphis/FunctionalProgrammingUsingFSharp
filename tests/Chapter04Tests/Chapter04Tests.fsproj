@@ -11,6 +11,12 @@
     <Compile Include="Examples_04_Tests.fs" />
     <Compile Include="MapColouring_04_06_Test.fs" />
     <Compile Include="CashRegister_04_06_Test.fs" />
+    <Compile Include="Exercise_04_01_Test.fs" />
+    <Compile Include="Exercise_04_02_Test.fs" />
+    <Compile Include="Exercise_04_03_Test.fs" />
+    <Compile Include="Exercise_04_04_Test.fs" />
+    <Compile Include="Exercise_04_05_Test.fs" />
+    <Compile Include="Exercise_04_06_Test.fs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -16,12 +16,15 @@
     <Content Include="Section_04_05.md" />
     <Content Include="Examples_04.md" />
     <Compile Include="Examples_04.fs" />
-    <None Include="Section_04_06.md" />
+    <Content Include="Section_04_06.md" />
     <Compile Include="CashRegister_04_06.fs" />
     <Compile Include="MapColouring_04_06.fs" />
     <Compile Include="Exercise_04_01.fs" />
+    <Compile Include="Exercise_04_02.fs" />
+    <Compile Include="Exercise_04_03.fs" />
+    <Compile Include="Exercise_04_04.fs" />
+    <Compile Include="Exercise_04_05.fs" />
+    <Compile Include="Exercise_04_06.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>
