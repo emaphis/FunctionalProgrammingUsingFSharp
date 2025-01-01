@@ -19,6 +19,7 @@
     <Compile Include="Exercise_04_06_Test.fs" />
     <Compile Include="Exercise_04_07_Test.fs" />
     <Compile Include="Exercise_04_08_Test.fs" />
+    <Compile Include="Exercise_04_09_Test.fs" />
   </ItemGroup>
 
   <ItemGroup>
