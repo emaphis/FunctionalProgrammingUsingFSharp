@@ -25,6 +25,8 @@
     <Compile Include="Exercise_04_04.fs" />
     <Compile Include="Exercise_04_05.fs" />
     <Compile Include="Exercise_04_06.fs" />
+    <Compile Include="Exercise_04_07.fs" />
+    <Compile Include="Exercise_04_08.fs" />
   </ItemGroup>
 
 </Project>

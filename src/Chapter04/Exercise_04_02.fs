@@ -7,9 +7,12 @@ Exercise 4.2
 *)
 
 let rec downto1 n = 
-    match n with
-    | 0 -> []
-    | _ -> n :: downto1 (n-1)
+    let rec loop n lst =
+        match n, lst with
+        | 0, lst -> lst
+        | _, lst -> n :: loop (n-1) lst
+
+    loop n []
 
 
 (*

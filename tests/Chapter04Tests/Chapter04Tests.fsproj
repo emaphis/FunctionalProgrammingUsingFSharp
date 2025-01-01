@@ -17,6 +17,8 @@
     <Compile Include="Exercise_04_04_Test.fs" />
     <Compile Include="Exercise_04_05_Test.fs" />
     <Compile Include="Exercise_04_06_Test.fs" />
+    <Compile Include="Exercise_04_07_Test.fs" />
+    <Compile Include="Exercise_04_08_Test.fs" />
   </ItemGroup>
 
   <ItemGroup>
