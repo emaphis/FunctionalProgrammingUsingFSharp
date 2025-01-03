@@ -9,7 +9,7 @@ open Swensen.Unquote
 open Chapter02.Exercise_02_06_07
 
 [<Fact>]
-let ``Test exercise_02_06 notDivisable function function`` () =
+let ``Test exercise_02_06 notDivisible function function`` () =
     test <@ notDivisible (2, 2) = false @>
     test <@ notDivisible(2,3) = true @>
     test <@ notDivisible(3,9) = false @>
