@@ -22,6 +22,7 @@
     <Compile Include="Exercise_04_09_Test.fs" />
     <Compile Include="Exercise_04_10_Test.fs" />
     <Compile Include="Exercise_Primes_Test.fs" />
+    <Compile Include="Exercise_04_Examples_Test.fs" />
   </ItemGroup>
 
   <ItemGroup>

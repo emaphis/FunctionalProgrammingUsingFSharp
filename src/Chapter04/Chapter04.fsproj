@@ -30,6 +30,7 @@
     <Compile Include="Exercise_04_09.fs" />
     <Compile Include="Exercise_04_10.fs" />
     <Compile Include="Exercise_Primes.fs" />
+    <Compile Include="Exercise_04_Examples.fs" />
   </ItemGroup>
 
 </Project>
