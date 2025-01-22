@@ -9,7 +9,7 @@
     <None Include="README.md" />
     <Compile Include="Tour.fs" />
     <None Include="MathFormating.md" />
-    <Compile Include="Program.fs" />
+    <Compile Include="Async01.fs" />
   </ItemGroup>
 
 </Project>
