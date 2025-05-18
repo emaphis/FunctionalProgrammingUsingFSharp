@@ -17,7 +17,7 @@ let circleArea1 r = System.Math.PI * r * r
 let area1 = circleArea1 1.0
 // val area1: float = 3.141592654
 
-let area2 = circleArea1 (2.0)
+let area2 = circleArea1 2.0
 // val area2: float = 12.56637061
 
 // Comments

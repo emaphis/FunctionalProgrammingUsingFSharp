@@ -1,6 +1,6 @@
 ﻿# Chapter 2 -  Values, operators, expressions and functions
 
-Studying basic types: numbers, characters, truth values and strings with some examples
+Studying basic types: numbers, characters, truth values and strings with some examples
 
 Type inference.
 

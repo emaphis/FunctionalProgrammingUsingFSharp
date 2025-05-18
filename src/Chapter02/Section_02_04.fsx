@@ -28,7 +28,7 @@ adjString "1234"
 // val it: string = "1234"
 
 
-// Pattern matching is to be prefered as highlighted by this
+// Pattern matching is to be preferred as highlighted by this
 // less readable GCD definition
 
 let rec gcd(m, n) =

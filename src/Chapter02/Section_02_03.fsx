@@ -9,7 +9,7 @@
 // val it: char = ' '
 
 
-//    Character escape sequnces
+//    Character escape sequences
 //    Sequence    Meaning
 //    --------    -------
 //    \'          Apostrophe

@@ -1,10 +1,10 @@
 ﻿// Section 1.1 - Values, types, identifiers and declarations
 
 // Using F# in interactive mode
-// You can enter thise expressions in interactive mode for testing
+// You can enter these expressions in interactive mode for testing
 2*3 + 4
 // val it: int = 10
-// value called it with the vaule of 1o and type of int
+// value called it with the value of 1o and type of int
 
 let price = 125  // new declaration of an identifier
 // val price: int = 125

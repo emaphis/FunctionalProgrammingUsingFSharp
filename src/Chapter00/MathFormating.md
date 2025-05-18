@@ -2,10 +2,10 @@
 
 ## Example 1
 
-An example of a sumation formula.
+An example of a summation formula.
 
 $$
-\displaystyle\sum_{k=3}^5 k^2=3^2 + 4^2 + 5^2 =50
+\displaystyle \sum_{k=3}^5 k^2=3^2 + 4^2 + 5^2 = 50
 $$
 
 ## Arithmetic
