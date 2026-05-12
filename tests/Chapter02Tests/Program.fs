@@ -1,1 +1,3 @@
-module Program = let [<EntryPoint>] main _ = 0
+namespace Chapter02
+
+module Program = let main _ = 0
