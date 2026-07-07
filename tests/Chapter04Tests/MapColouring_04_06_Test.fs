@@ -1,4 +1,4 @@
-module Chapter04Tests.MapColouring_04_06_Test
+module Chapter04.MapColouring_04_06_Test
 
 open Xunit
 open Swensen.Unquote

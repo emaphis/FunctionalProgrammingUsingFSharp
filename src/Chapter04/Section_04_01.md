@@ -73,8 +73,8 @@ stdin(2,6): error FS0001: All elements of a list must be implicitly convertible 
 
 ## Graph for a list
 
-A non-empty list $[x_1;x_2;\dots;x_n]$ with $n\geq 0$ consists of two parts: the first element $x_1$ called the `heat` of the list and the remaining
-part $[x_2; \dots; x_n]$ is called the tail of the list. The head of $[2;3;4]$ is $2$ and the tail is $[3;4]$.
+A non-empty list $[x_1;x_2;\dots;x_n]$ with $n\geq 0$ consists of two parts: the first element $x_1$ called the `head` of the list and the remaining
+part $[x_2; \dots; x_n]$ is called the `tail` of the list. The head of $[2;3;4]$ is $2$ and the tail is $[3;4]$.
 The head of $[2]$ is $2$ while the tail is $[\space]$.
 
 The list in F# is essentially a graph. 

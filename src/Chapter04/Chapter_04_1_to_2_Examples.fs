@@ -46,7 +46,7 @@ let eq1 = [2;3;2] = [2;3];;
 let eq2 = [2;3;2] = [2;3;3];;
 //val eq2: bool = false
 
-// Liats of functions can't be compared
+// Lists of functions can't be compared
 //let eq3 = [sin; cos] = [];;
 // Error FS0001: The type '('a -> 'a)' does not support the 'equality' constraint because it is a function type
 
@@ -130,7 +130,7 @@ let (o1, o2)::os = [(1,[1]); (2, [2]); (3, [3]); (4,[4])];;
 // Simple list expressions - Range expressions
  let lst0 = [ -3 .. 5 ];;
  //val lst0: int list = [-3; -2; -1; 0; 1; 2; 3; 4; 5]
- 
+
  let lst1 = [ 2.4 .. 3.0 ** 1.7 ];;
 //val lst1: float list = [2.4; 3.4; 4.4; 5.4; 6.4]
 

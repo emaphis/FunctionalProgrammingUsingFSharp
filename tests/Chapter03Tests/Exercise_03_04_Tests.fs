@@ -1,4 +1,4 @@
-module Chapter03Tests.Exercise_03_04_Test
+module Chapter03.Exercise_03_04_Test
 
 open Xunit
 open Swensen.Unquote

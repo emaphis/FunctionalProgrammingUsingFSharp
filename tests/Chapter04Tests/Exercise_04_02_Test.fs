@@ -1,4 +1,4 @@
-﻿module Exercise_04_02_Test
+﻿module Chapter04.Exercise_04_02_Test
 
 open Xunit
 open Swensen.Unquote

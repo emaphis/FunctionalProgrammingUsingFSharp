@@ -1,4 +1,4 @@
-﻿module Exercise_04_07_Test
+﻿module Chapter04.Exercise_04_07_Test
 
 
 open Xunit

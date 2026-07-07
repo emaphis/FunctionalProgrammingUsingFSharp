@@ -29,7 +29,7 @@ let rec removeDub = function
 
 // val removeDub: _arg1: 'a list -> 'a list when 'a: equality
 
-emoveDub [1;2;2;1;4;1;5];;
+removeDub [1;2;2;1;4;1;5];;
 //val it: int list = [1; 2; 4; 5]
 ```
 

@@ -1,4 +1,4 @@
-module Chapter04Tests.Exercise_Primes_Test
+module Chapter04.Exercise_Primes_Test
 
 
 open Xunit

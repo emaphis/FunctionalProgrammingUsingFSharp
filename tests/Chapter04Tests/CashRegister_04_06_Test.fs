@@ -1,4 +1,4 @@
-module Chapter04Tests.CashRegister_04_06_Test
+module Chapter04.CashRegister_04_06_Test
 
 open Xunit
 open Swensen.Unquote
